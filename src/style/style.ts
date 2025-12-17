@@ -3,9 +3,12 @@ import { Color } from "./Color";
 import { fontFamily } from "./Fontfamily";
 
 export const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
     backgroundColor: Color.gray[600],
+  },
+  container: {
+    paddingHorizontal: 24,
   },
   headerContainer: {
     alignItems: "center",

@@ -14,10 +14,11 @@ export const styles = StyleSheet.create({
     fontSize: 14,
   },
   created: {
-    color: Color.blue["blue-dark"],
+    color: Color.purple["purple-dark"],
+
   },
   completed: {
-    color: Color.purple["purple-dark"],
+    color: Color.blue["blue-dark"],
   },
   counterBadge: {
     backgroundColor: Color.gray[400],
