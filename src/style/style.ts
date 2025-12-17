@@ -9,9 +9,10 @@ export const styles = StyleSheet.create({
   },
   headerContainer: {
     alignItems: "center",
+    justifyContent: "center",
     width: "100%",
-    padding: 70,
-    backgroundColor: Color.gray[700]
+    height: 173,
+    backgroundColor: Color.gray[700],
   },
   image: {
     width: 110,
@@ -22,15 +23,22 @@ export const styles = StyleSheet.create({
     gap: 5,
     padding: 12,
     marginTop: -35,
-    justifyContent: 'center'
+    justifyContent: "center",
   },
-    input: {
-      width: 271,
-      padding: 16,
-      fontFamily: fontFamily.regular,
-      color: "white",
-      backgroundColor: Color.gray[500],
-      borderRadius: 8,
-      borderWidth: 1,
-    },
+  input: {
+    width: 271,
+    padding: 16,
+    fontFamily: fontFamily.regular,
+    color: "white",
+    backgroundColor: Color.gray[500],
+    borderRadius: 8,
+    borderWidth: 1,
+  },
+  counterContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginHorizontal: 30,
+    borderBottomWidth: 1,
+    borderColor: Color.gray[400],
+  },
 });
