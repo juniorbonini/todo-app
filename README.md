@@ -1,174 +1,117 @@
-📋 Tasks App
+# 📋 Tasks App
 
-Aplicação mobile de gerenciamento de tarefas desenvolvida com React Native, Expo e TypeScript, com foco em organização de estado, componentização, boas práticas de layout e tipagem.
+Aplicação mobile de gerenciamento de tarefas desenvolvida com **React Native**, **Expo** e **TypeScript**.
 
-O projeto permite criar, concluir e remover tarefas, exibindo contadores dinâmicos e uma interface simples.
+O projeto nasceu como um app simples de tarefas e está evoluindo para uma plataforma completa com autenticação, estatísticas de uso e múltiplas telas — sempre com foco em arquitetura limpa, componentização e boas práticas.
 
-🚀 Tecnologias utilizadas
+---
 
-React Native
+## 🚀 Tecnologias
 
-Expo
+- React Native
+- Expo
+- TypeScript
+- Axios
+- Expo Secure Store
+- Expo Vector Icons
+- Expo Google Fonts (Inter)
+- Git & GitHub
 
-TypeScript
+---
 
-Expo Vector Icons
+## ✅ Funcionalidades implementadas
 
-Expo Google Fonts (Inter)
+- Criar, concluir e remover tarefas
+- Contadores dinâmicos de tarefas criadas e concluídas
+- Estado vazio com feedback visual
+- Interface estilizada com tokens de cor e tipografia
 
-FlatList
+---
 
-StyleSheet
+## 🔐 Em desenvolvimento
 
-Git & GitHub
+- [ ] Autenticação — Login e Register com integração à API
+- [ ] Persistência de token com Expo Secure Store
+- [ ] Tela de estatísticas do usuário (UserStatics)
+- [ ] Navegação entre telas
+- [ ] Melhorias de UX e acessibilidade
 
-🎯 Funcionalidades
+---
 
-➕ Criar novas tarefas
+## 🧠 Arquitetura
 
-✅ Marcar e desmarcar tarefas como concluídas
+O projeto passou por uma refatoração completa antes de seguir para as novas funcionalidades, aplicando:
 
-🗑️ Remover tarefas
+- **Custom hooks** — lógica de tarefas extraída para `useTasks`
+- **Componentização** — cada componente com responsabilidade única
+- **Separação de camadas** — UI, lógica, estilos e tipagens em camadas distintas
+- **Tokens visuais** — cores e fontes centralizadas em `Color.ts` e `Fontfamily.ts`
+- **Interfaces TypeScript** — tipagem forte em todo o projeto
 
-📊 Contadores dinâmicos de tarefas criadas e concluídas
+---
 
-📌 Ordenação automática:
+## 🧩 Componentes principais
 
-Tarefas pendentes no topo
+| Componente | Responsabilidade |
+|---|---|
+| `Container` | Cor de fundo e padding horizontal |
+| `Header` | Logo e identidade visual do app |
+| `Form` | Input controlado + botão de criação |
+| `TaskItem` | Renderização individual de tarefa |
+| `TasksSummary` | Contadores de criadas e concluídas |
+| `Empty` | Estado visual sem tarefas |
+| `Loading` | Tela de carregamento de fontes |
 
-Tarefas concluídas ao final da lista
+---
 
-🧩 Componentização e tipagem forte
+## 🪝 Hooks
 
-🎨 Interface estilizada e responsiva
+| Hook | Responsabilidade |
+|---|---|
+| `useTasks` | Estado e operações da lista de tarefas (add, toggle, remove) |
 
-📭 Estado vazio com feedback visual
+---
 
-🧠 Arquitetura e conceitos aplicados
+## 📁 Estrutura de pastas
 
-Estado centralizado na tela Home
+```
+src/
+├── app/
+│   └── App.tsx
+├── assets/
+├── components/
+│   ├── Button/
+│   ├── Container/
+│   ├── Empty/
+│   ├── Form/
+│   ├── Header/
+│   ├── Input/
+│   ├── Loading/
+│   ├── ScreenWrapper/
+│   ├── Task/
+│   └── TasksSummary/
+├── hooks/
+│   └── useTasks.ts
+├── interfaces/
+├── screens/
+│   └── Home.tsx
+├── style/
+│   ├── Color.ts
+│   ├── Fontfamily.ts
+```
 
-Componentes reutilizáveis e desacoplados
+---
 
-Tipos e enums bem definidos
+## ▶️ Como executar
 
-Imutabilidade de estado
-
-Separação clara entre:
-
-UI
-
-Lógica
-
-Estilos
-
-Tipagens
-
-Padronização visual por tokens de estilo
-
-📁 Estrutura de pastas
-├── .expo/                  # Configurações internas do Expo
-├── assets/                 # Assets globais do projeto
-├── ios/                    # Configurações específicas para iOS
-├── node_modules/           # Dependências do projeto
-├── src/
-│   ├── @types/             # Tipagens globais da aplicação
-│   │   └── types.ts
-│   │
-│   ├── app/
-│   │   └── App.tsx         # Entry point da aplicação
-│   │
-│   ├── assets/
-│   │   └── todo-logo.png   # Logo do app
-│   │
-│   ├── components/         # Componentes reutilizáveis
-│   │   ├── Button/
-│   │   ├── Empty/
-│   │   ├── Input/
-│   │   ├── Loading/
-│   │   ├── Summary/
-│   │   └── Task/
-│   │
-│   ├── screens/
-│   │   └── Home.tsx        # Tela principal do app
-│   │
-│   ├── style/              # Estilos globais e tokens visuais
-│   │   ├── Color.ts
-│   │   ├── Fontfamily.ts
-│   │   ├── Global.ts
-│   │   └── style.ts
-│   │
-│   ├── utils/
-│   │   └── TasksTypes.ts   # Enum para tipos de tasks (Criadas / Concluídas)
-│
-├── .gitignore
-├── app.json
-├── index.ts
-├── package.json
-├── package-lock.json
-└── tsconfig.json
-
-🧩 Componentes principais
-🔹 Home
-
-Tela principal da aplicação
-
-Centraliza o estado das tarefas
-
-Controla criação, conclusão e remoção
-
-Renderiza contadores, lista e estado vazio
-
-🔹 Task
-
-Representa uma tarefa individual
-
-Exibe descrição, estado e botão de remoção
-
-Aplica estilos condicionais (concluída / pendente)
-
-🔹 Summary
-
-Exibe contadores de tarefas
-
-Diferencia visualmente “Criadas” e “Concluídas”
-
-🔹 Input
-
-Campo controlado para descrição da tarefa
-
-Feedback visual de foco
-
-🔹 Button
-
-Botão de ação para criar novas tarefas
-
-🔹 Empty
-
-Estado visual quando não há tarefas cadastradas
-
-📌 Propósito do projeto
-
-Este projeto foi desenvolvido com o objetivo de:
-
-Consolidar conceitos de React Native
-
-Praticar TypeScript aplicado ao frontend
-
-Exercitar componentização e organização de pastas
-
-Criar um projeto limpo, escalável e apresentável para portfólio
-
-Simular um fluxo real de desenvolvimento mobile
-
-▶️ Como executar o projeto
-# Instalar dependências
+```bash
 npm install
-
-# Iniciar o projeto
 npx expo start
+```
 
-👨‍💻 Autor
+---
 
-Desenvolvido por Junior Bonini (Projeto desafio da Rocketseat)
-Projeto voltado para aprendizado, prática e portfólio profissional.
+## 👨‍💻 Autor
+
+Desenvolvido por **Junior Bonini**  
+Projeto iniciado como desafio da Rocketseat e expandido como portfólio profissional.
