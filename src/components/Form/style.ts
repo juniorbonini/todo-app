@@ -8,15 +8,14 @@ export const styles = StyleSheet.create({
     width: 271,
     padding: 16,
     fontFamily: fontFamily.regular,
-    color: "white",
     backgroundColor: Color.gray[500],
     borderRadius: 8,
     borderWidth: 1,
   },
   container: {
-    height: 54,
     flexDirection: "row",
     justifyContent: "center",
-    gap: 4,
+    transform: [{ translateY: -25 }],
+    gap: 8,
   },
 });
