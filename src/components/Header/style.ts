@@ -5,9 +5,7 @@ import { Color } from "@/style/Color";
 export const styles = StyleSheet.create({
   headerContainer: {
     alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    height: 200,
+    paddingVertical: 74,
     backgroundColor: Color.gray[700],
   },
 
