@@ -8,16 +8,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Color.gray[600],
   },
-  container: {
-    paddingHorizontal: 24,
-  },
-  contentContainer: {
-    flexDirection: "row",
-    gap: 5,
-    padding: 12,
-    marginTop: -35,
-    justifyContent: "center",
-  },
+
   input: {
     width: 271,
     padding: 16,

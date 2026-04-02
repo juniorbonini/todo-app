@@ -17,6 +17,7 @@ import { Task } from "@/interfaces/task";
 import { Color } from "@/style/Color";
 import { styles } from "@/style/style";
 import { TasksTypes } from "@/utils/TasksTypes";
+import { Container } from "@/components/Container";
 
 export function Home() {
   const [fontsLoaded] = useFonts({
@@ -66,8 +67,7 @@ export function Home() {
   return (
     <Pressable onPress={Keyboard.dismiss} style={styles.screen}>
       <Header />
-      <View style={styles.container}>
-        <View style={styles.contentContainer}>
+      <Container>
           <Input
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
@@ -83,7 +83,6 @@ export function Home() {
             ]}
           />
           <Button iconName="add" onPress={() => addTask(taskDescription)} />
-        </View>
         <View style={styles.counterContainer}>
           <TasksCounter
             type={TasksTypes.Created}
@@ -104,7 +103,7 @@ export function Home() {
           )}
           ListEmptyComponent={<Empty iconName="assignment-add" />}
         />
-      </View>
+      </Container>
     </Pressable>
   );
 }
