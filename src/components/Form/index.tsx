@@ -13,8 +13,10 @@ export function Form({ addTask }: FormProps) {
   function handleAdd() {
     const trimmed = description.trim();
     if (!trimmed) {
-      setDescription("");
+      return;
     }
+    addTask(trimmed);
+    setDescription("");
   }
 
   function handleInputFocus() {
