@@ -58,7 +58,7 @@ O projeto passou por uma refatoração completa antes de seguir para as novas fu
 | `Header` | Logo e identidade visual do app |
 | `Form` | Input controlado + botão de criação |
 | `TaskItem` | Renderização individual de tarefa |
-| `TasksSummary` | Contadores de criadas e concluídas |
+| `Summary` | Contadores de criadas e concluídas |
 | `Empty` | Estado visual sem tarefas |
 | `Loading` | Tela de carregamento de fontes |
 
@@ -87,12 +87,17 @@ src/
 │   ├── Header/
 │   ├── Input/
 │   ├── Loading/
-│   ├── ScreenWrapper/
 │   ├── Task/
-│   └── TasksSummary/
+│   └── Summary/
 ├── hooks/
 │   └── useTasks.ts
 ├── interfaces/
+    ├── button.ts
+    ├── task.ts
+    ├── input.ts
+    ├── form.ts
+    ├── empty.ts
+    ├── container.ts
 ├── screens/
 │   └── Home.tsx
 ├── style/
