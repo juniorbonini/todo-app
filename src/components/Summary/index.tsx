@@ -1,24 +1,25 @@
 import { Text, View } from "react-native";
 
-import { TaskCounterProps } from "@/interfaces/task";
-import { TasksTypes } from "@/utils/TasksTypes";
+import { TaskSummaryProps } from "@/interfaces/task";
 import { styles } from "./style";
 
-export function TasksCounter({ type, value }: TaskCounterProps) {
-  const isCreated = type === TasksTypes.Created;
-
+export function TaskSummary({ tasks }: TaskSummaryProps) {
   return (
     <View style={styles.container}>
-      <Text
-        style={[
-          styles.counterText,
-          isCreated ? styles.created : styles.completed,
-        ]}
-      >
-        {isCreated ? "Criadas" : "Concluídas"}
-      </Text>
-      <View style={styles.counterBadge}>
-        <Text style={styles.value}>{value}</Text>
+      <View style={styles.counter}>
+        <Text style={[styles.counterText, styles.created]}>Criadas</Text>
+        <View style={styles.counterBadge}>
+          <Text style={styles.value}>{tasks.length}</Text>
+        </View>
+      </View>
+
+      <View style={styles.counter}>
+        <Text style={[styles.counterText, styles.completed]}>Concluídas</Text>
+        <View style={styles.counterBadge}>
+          <Text style={styles.value}>
+            {tasks.filter((t) => t.isCompleted).length}
+          </Text>
+        </View>
       </View>
     </View>
   );

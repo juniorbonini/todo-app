@@ -5,6 +5,12 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
+    justifyContent: "space-between",
+    borderBottomWidth: 1,
+    borderColor: Color.gray[400],
+  },
+  counter: {
+    flexDirection: "row",
     marginTop: 16,
     marginBottom: 15,
     gap: 8,
@@ -15,7 +21,6 @@ export const styles = StyleSheet.create({
   },
   created: {
     color: Color.purple["purple-dark"],
-
   },
   completed: {
     color: Color.blue["blue-dark"],
@@ -25,7 +30,6 @@ export const styles = StyleSheet.create({
     borderRadius: 999,
     paddingHorizontal: 8,
     paddingVertical: 2,
-    
   },
   value: {
     color: Color.gray[200],
