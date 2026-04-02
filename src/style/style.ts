@@ -11,17 +11,6 @@ export const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 24,
   },
-  headerContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    height: 173,
-    backgroundColor: Color.gray[700],
-  },
-  image: {
-    width: 110,
-    height: 32,
-  },
   contentContainer: {
     flexDirection: "row",
     gap: 5,
@@ -41,7 +30,6 @@ export const styles = StyleSheet.create({
   counterContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginHorizontal: 30,
     borderBottomWidth: 1,
     borderColor: Color.gray[400],
   },

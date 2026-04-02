@@ -4,20 +4,19 @@ import {
   useFonts,
 } from "@expo-google-fonts/inter";
 import { useState } from "react";
-import { FlatList, Image, Keyboard, Pressable, View } from "react-native";
+import { FlatList, Keyboard, Pressable, View } from "react-native";
 
-import { TasksCounter } from "@/components/Summary";
-import { TasksTypes } from "@/utils/TasksTypes";
-import { Loading } from "@/components/Loading";
-import { TaskItem } from "@/components/Task";
 import { Button } from "@/components/Button";
-import { Input } from "@/components/Input";
 import { Empty } from "@/components/Empty";
+import { Header } from "@/components/Header";
+import { Input } from "@/components/Input";
+import { Loading } from "@/components/Loading";
+import { TasksCounter } from "@/components/Summary";
+import { TaskItem } from "@/components/Task";
 import { Task } from "@/interfaces/task";
-import { styles } from "@/style/style";
 import { Color } from "@/style/Color";
-
-const logoImage = require("../assets/todo-logo.png");
+import { styles } from "@/style/style";
+import { TasksTypes } from "@/utils/TasksTypes";
 
 export function Home() {
   const [fontsLoaded] = useFonts({
@@ -66,9 +65,7 @@ export function Home() {
 
   return (
     <Pressable onPress={Keyboard.dismiss} style={styles.screen}>
-      <View style={styles.headerContainer}>
-        <Image source={logoImage} style={styles.image} />
-      </View>
+      <Header />
       <View style={styles.container}>
         <View style={styles.contentContainer}>
           <Input
