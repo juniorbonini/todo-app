@@ -1,8 +1,5 @@
-import { TasksTypes } from "@/utils/TasksTypes";
-
-export interface TaskCounterProps {
-  type: TasksTypes;
-  value: number;
+export interface TaskSummaryProps {
+  tasks: Task[];
 }
 
 export interface Task {
