@@ -6,17 +6,22 @@ import { Color } from "@/style/Color";
 import { styles } from "./style";
 
 export function TaskItem({ task, onToggle, onDelete }: TaskProps) {
+  const { description, isCompleted, id } = task;
+
+  function handleToggle() { onToggle(id) }
+  function handleDelete() { onDelete(id) }
+
   return (
     <View style={styles.container}>
       <Pressable
         style={[
           styles.circle,
-          task.isCompleted && { backgroundColor: Color.purple["purple-dark"] },
+          isCompleted && { backgroundColor: Color.purple["purple-dark"] },
         ]}
-        onPress={() => onToggle(task.id)}
-        accessibilityLabel={`Marcar tarefa ${task.description}`}
+        onPress={handleToggle}
+        accessibilityLabel={`Marcar tarefa ${description}`}
       >
-        {task.isCompleted && (
+        {isCompleted && (
           <MaterialIcons name="check" size={16} color={Color.gray[100]} />
         )}
       </Pressable>
@@ -24,16 +29,16 @@ export function TaskItem({ task, onToggle, onDelete }: TaskProps) {
       <Text
         style={[
           styles.description,
-          task.isCompleted && styles.descriptionCompleted,
+          isCompleted && styles.descriptionCompleted,
         ]}
       >
-        {task.description}
+        {description}
       </Text>
 
       <Pressable
         style={styles.trash}
-        onPress={() => onDelete(task.id)}
-        accessibilityLabel={`Remover tarefa ${task.description}`}
+        onPress={handleDelete}
+        accessibilityLabel={`Remover tarefa ${description}`}
       >
         <MaterialIcons
           name="delete-forever"
