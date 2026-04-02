@@ -1,8 +1,9 @@
 import { TextInput, TextInputProps, View } from "react-native";
-import { styles } from "./style";
-import { Color } from "@/style/Color";
 
-export function Input({...rest}: TextInputProps) {
+import { Color } from "@/style/Color";
+import { styles } from "./style";
+
+export function Input({ ...rest }: TextInputProps) {
   return (
     <View style={styles.container}>
       <TextInput

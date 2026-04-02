@@ -1,13 +1,3 @@
-import { Task } from "@/@types/types";
-import { Button } from "@/components/Button";
-import { Empty } from "@/components/Empty";
-import { Input } from "@/components/Input";
-import { Loading } from "@/components/Loading";
-import { TasksCounter } from "@/components/Summary";
-import { TaskItem } from "@/components/Task";
-import { Color } from "@/style/Color";
-import { styles } from "@/style/style";
-import { TasksTypes } from "@/utils/TasksTypes";
 import {
   Inter_400Regular,
   Inter_700Bold,
@@ -15,6 +5,17 @@ import {
 } from "@expo-google-fonts/inter";
 import { useState } from "react";
 import { FlatList, Image, Keyboard, Pressable, View } from "react-native";
+
+import { TasksCounter } from "@/components/Summary";
+import { TasksTypes } from "@/utils/TasksTypes";
+import { Loading } from "@/components/Loading";
+import { TaskItem } from "@/components/Task";
+import { Button } from "@/components/Button";
+import { Input } from "@/components/Input";
+import { Empty } from "@/components/Empty";
+import { Task } from "@/interfaces/task";
+import { styles } from "@/style/style";
+import { Color } from "@/style/Color";
 
 const logoImage = require("../assets/todo-logo.png");
 
@@ -54,8 +55,8 @@ export function Home() {
   function toggleTask(id: string) {
     setTask((prevState) =>
       prevState.map((task) =>
-        task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
-      )
+        task.id === id ? { ...task, isCompleted: !task.isCompleted } : task,
+      ),
     );
   }
 

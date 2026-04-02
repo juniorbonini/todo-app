@@ -1,8 +1,9 @@
-import { TaskProps } from "@/@types/types";
-import { Pressable, Text, View } from "react-native";
-import { styles } from "./style";
 import { MaterialIcons } from "@expo/vector-icons";
+import { Pressable, Text, View } from "react-native";
+
+import { TaskProps } from "@/interfaces/task";
 import { Color } from "@/style/Color";
+import { styles } from "./style";
 
 export function TaskItem({ task, onToggle, onDelete }: TaskProps) {
   return (

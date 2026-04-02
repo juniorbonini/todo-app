@@ -1,6 +1,7 @@
-import { TaskCounterProps } from "@/@types/types";
-import { TasksTypes } from "@/utils/TasksTypes";
 import { Text, View } from "react-native";
+
+import { TaskCounterProps } from "@/interfaces/task";
+import { TasksTypes } from "@/utils/TasksTypes";
 import { styles } from "./style";
 
 export function TasksCounter({ type, value }: TaskCounterProps) {
