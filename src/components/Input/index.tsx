@@ -1,11 +1,12 @@
-import { TextInput, TextInputProps, View } from "react-native";
+import { TextInput, View } from "react-native";
 
+import { InputProps } from "@/interfaces/input";
 import { Color } from "@/style/Color";
 import { styles } from "./style";
 
-export function Input({ ...rest }: TextInputProps) {
+export function Input({ containerStyle, ...rest }: InputProps) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, containerStyle]}>
       <TextInput
         placeholder="Adicione uma nova tarefa"
         placeholderTextColor={Color.gray[300]}

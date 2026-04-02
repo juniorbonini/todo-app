@@ -6,50 +6,35 @@ import {
 import { useState } from "react";
 import { FlatList, Keyboard, Pressable, View } from "react-native";
 
-import { Button } from "@/components/Button";
+import { Container } from "@/components/Container";
 import { Empty } from "@/components/Empty";
+import { Form } from "@/components/Form";
 import { Header } from "@/components/Header";
-import { Input } from "@/components/Input";
 import { Loading } from "@/components/Loading";
 import { TasksCounter } from "@/components/Summary";
 import { TaskItem } from "@/components/Task";
 import { Task } from "@/interfaces/task";
-import { Color } from "@/style/Color";
 import { styles } from "@/style/style";
 import { TasksTypes } from "@/utils/TasksTypes";
-import { Container } from "@/components/Container";
 
 export function Home() {
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_700Bold,
   });
-  const [isFocused, setIsFocused] = useState(false);
   const [task, setTask] = useState<Task[]>([]);
-  const [taskDescription, setTaskDescription] = useState("");
-  const addTask = (description: string) => {
-    if (!description.trim()) {
-      return;
-    }
-    const newTask: Task = {
-      id: Date.now().toString(),
-      description,
-      isCompleted: false,
-    };
-    setTask((prevState) => [...prevState, newTask]);
-    setTaskDescription("");
-  };
 
   if (!fontsLoaded) {
     return <Loading />;
   }
 
-  function handleInputFocus() {
-    setIsFocused(true);
-  }
-
-  function handleInputBlur() {
-    setIsFocused(false);
+  function onAddTask(description: string) {
+    const newTask: Task = {
+      id: Date.now().toString(),
+      description,
+      isCompleted: false,
+    };
+    setTask((prev) => [...prev, newTask]);
   }
 
   function toggleTask(id: string) {
@@ -68,21 +53,7 @@ export function Home() {
     <Pressable onPress={Keyboard.dismiss} style={styles.screen}>
       <Header />
       <Container>
-          <Input
-            onFocus={handleInputFocus}
-            onBlur={handleInputBlur}
-            value={taskDescription}
-            onChangeText={setTaskDescription}
-            style={[
-              styles.input,
-              {
-                borderColor: isFocused
-                  ? Color.blue["blue-dark"]
-                  : Color.gray[700],
-              },
-            ]}
-          />
-          <Button iconName="add" onPress={() => addTask(taskDescription)} />
+        <Form addTask={onAddTask} />
         <View style={styles.counterContainer}>
           <TasksCounter
             type={TasksTypes.Created}
