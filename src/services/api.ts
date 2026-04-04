@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as SecureStore from "expo-secure-store";
 
-const BASE_URL = process.env.URL_DEVELOPMENT;
+const BASE_URL = process.env.EXPO_PUBLIC_URL_DEVELOPMENT;
 
 export const api = axios.create({
   baseURL: BASE_URL,
@@ -9,7 +9,7 @@ export const api = axios.create({
 
 api.interceptors.request.use(
   async (config) => {
-    const token = await SecureStore.getItemAsync("token-todo");
+    const token = await SecureStore.getItemAsync("token_todo");
 
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
