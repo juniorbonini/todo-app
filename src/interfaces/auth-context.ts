@@ -2,8 +2,8 @@ import { ReactNode } from "react";
 
 export interface AuthContextData {
   signed: boolean;
-  user: object | null;
-  signIn(credenditials: object): Promise<void>;
+  user: UserData | null;
+  signIn({ email, password }: CredentialsData): Promise<void>;
   signOut(): void;
   loading: boolean;
 }
