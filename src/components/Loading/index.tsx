@@ -4,5 +4,5 @@ import { Color } from "@/style/Color";
 import { styles } from "./style";
 
 export function Loading() {
-  return <ActivityIndicator color={Color.gray[500]} style={styles.container} />;
+  return <ActivityIndicator color={Color.gray[200]} style={styles.container} />;
 }

@@ -1,5 +1,3 @@
-import { TextInputProps } from "react-native";
-
-export interface FormProps extends TextInputProps {
+export interface FormProps {
   addTask: (description: string) => void;
 }

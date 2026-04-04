@@ -6,13 +6,13 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    height: 74,
+    height: 54,
     backgroundColor: Color.gray[500],
     paddingHorizontal: 8,
     borderRadius: 6,
     marginBottom: 8,
     marginTop: 16,
-    gap: 8
+    gap: 5,
   },
   circle: {
     width: 24,
@@ -24,16 +24,14 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   description: {
-    color: Color.gray[100],
-    marginLeft: 8,
+    color: Color.gray[300],
+    marginLeft: 2,
     fontSize: 14,
     flex: 1,
   },
 
   descriptionCompleted: {
     textDecorationLine: "line-through",
-    color: Color.gray[300],
-
   },
   trash: {
     marginLeft: 8,

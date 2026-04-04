@@ -1,6 +1,6 @@
 export const Color = {
   blue: {
-    "blue-light": "##4EA8DE",
+    "blue-light": "#4EA8DE",
     "blue-dark": "#1E6F9F",
   },
 

@@ -6,13 +6,13 @@ import {
 import { FlatList } from "react-native";
 
 import { Container } from "@/components/Container";
-import { Empty } from "@/components/Empty";
-import { Form } from "@/components/Form";
-import { Header } from "@/components/Header";
-import { Loading } from "@/components/Loading";
 import { TaskSummary } from "@/components/Summary";
+import { Loading } from "@/components/Loading";
+import { Header } from "@/components/Header";
 import { TaskItem } from "@/components/Task";
 import { useTasks } from "@/hooks/useTasks";
+import { Empty } from "@/components/Empty";
+import { Form } from "@/components/Form";
 
 export function Home() {
   const { task, onAddTask, removeTask, toggleTask } = useTasks();
