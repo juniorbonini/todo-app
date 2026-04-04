@@ -7,6 +7,13 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",
+  },
+  outline: {
+    borderWidth: 1,
+    borderColor: Color.blue["blue-dark"],
+    color: Color.blue["blue-dark"],
+  },
+  fill: {
     backgroundColor: Color.blue["blue-dark"],
   },
 });

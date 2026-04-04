@@ -1,3 +1,4 @@
+import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
 import { Input } from "@/components/Input";
 import { useAuthContext } from "@/contexts/authContext";
@@ -52,6 +53,19 @@ export function SignIn() {
             value={email}
             onChangeText={setEmail}
           />
+          <View style={{ height: 12 }} />
+
+          <Input
+            placeholder="Senha"
+            secureTextEntry
+            value={password}
+            onChangeText={setPassword}
+          />
+
+          <Button onPress={() => {}}>Login</Button>
+          <Button onPress={() => {}} mode="outline">
+            Cadastrar
+          </Button>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
