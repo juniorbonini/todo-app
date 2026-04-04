@@ -1,6 +1,6 @@
-import { MaterialIcons } from "@expo/vector-icons";
+import { ReactNode } from "react";
 
 export interface ButtonProps {
-  iconName: keyof typeof MaterialIcons.glyphMap;
   onPress: () => void;
+  children: ReactNode;
 }

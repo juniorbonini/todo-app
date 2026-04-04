@@ -6,10 +6,9 @@ import {
 import { FlatList } from "react-native";
 
 import { Container } from "@/components/Container";
-import { Empty } from "@/components/Empty";
 import { CreateTask } from "@/components/CreateTask";
+import { Empty } from "@/components/Empty";
 import { Header } from "@/components/Header";
-import { Input } from "@/components/Input";
 import { Loading } from "@/components/Loading";
 import { TaskSummary } from "@/components/Summary";
 import { TaskItem } from "@/components/Task";
@@ -32,8 +31,6 @@ export function Home() {
       <Container>
         <CreateTask addTask={onAddTask} />
         <TaskSummary tasks={task} />
-
-        <Input placeholder="teste para mostrar que a cor e estilo criado do input está totalmente reservado para o component <CreateTask>" />
         <FlatList
           data={task}
           keyExtractor={(item) => item.id}

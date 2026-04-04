@@ -1,5 +1,6 @@
 import { FormProps } from "@/interfaces/form";
 import { Color } from "@/style/Color";
+import { MaterialIcons } from "@expo/vector-icons";
 import { useState } from "react";
 import { Alert, View } from "react-native";
 import { Button } from "../Button";
@@ -41,7 +42,9 @@ export function CreateTask({ addTask }: FormProps) {
           },
         ]}
       />
-      <Button iconName="add" onPress={handleAdd} />
+      <Button onPress={handleAdd}>
+        <MaterialIcons name="add" size={24} color={Color.gray[100]} />
+      </Button>
     </View>
   );
 }
