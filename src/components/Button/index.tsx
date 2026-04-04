@@ -1,4 +1,4 @@
-import { TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
 import { ButtonProps } from "@/interfaces/button";
 import { styles } from "./style";
@@ -9,7 +9,12 @@ interface ButtonOutlineProps {
   color: string;
 }
 
-export function Button({ onPress, children, mode = "fill" }: ButtonProps) {
+export function Button({
+  onPress,
+  children,
+  mode = "fill",
+  label,
+}: ButtonProps) {
   const isFill = mode === "fill";
 
   return (
@@ -18,7 +23,18 @@ export function Button({ onPress, children, mode = "fill" }: ButtonProps) {
       activeOpacity={0.7}
       onPress={onPress}
     >
-      {children}
+      {label ? (
+        <Text
+          style={[
+            styles.label,
+            isFill ? styles.fillLabel : styles.outlineLabel,
+          ]}
+        >
+          {label}
+        </Text>
+      ) : (
+        children
+      )}
     </TouchableOpacity>
   );
 }

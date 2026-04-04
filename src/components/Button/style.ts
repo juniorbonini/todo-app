@@ -15,5 +15,16 @@ export const styles = StyleSheet.create({
   },
   fill: {
     backgroundColor: Color.blue["blue-dark"],
+    color: Color.gray[200],
+  },
+  label: {
+    fontSize: 18,
+    letterSpacing: 0.6,
+  },
+  fillLabel: {
+    color: Color.gray[700],
+  },
+  outlineLabel: {
+    color: Color.blue["blue-dark"],
   },
 });

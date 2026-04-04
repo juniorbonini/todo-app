@@ -1,15 +1,20 @@
 import { Button } from "@/components/Button";
-import { Header } from "@/components/Header";
+import { Container } from "@/components/Container";
 import { Input } from "@/components/Input";
 import { useAuthContext } from "@/contexts/authContext";
 import { useState } from "react";
 import {
   Alert,
+  Image,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Text,
   View,
 } from "react-native";
+import { styles } from "./style";
+
+const logoImage = require("../../assets/todo-logo.png");
 
 export function SignIn() {
   const { signIn } = useAuthContext();
@@ -36,37 +41,41 @@ export function SignIn() {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={{ flex: 1 }}
+      style={styles.screen}
     >
       <ScrollView
         contentContainerStyle={{ flexGrow: 1 }}
         keyboardShouldPersistTaps="handled"
       >
-        <View>
-          <Header />
+        <View style={styles.logoContainer}>
+          <Image source={logoImage} style={{ width: 110, height: 32 }} />
         </View>
-        <View>
-          <Input
-            placeholder="E-mail"
-            keyboardType="email-address"
-            autoCapitalize="none"
-            value={email}
-            onChangeText={setEmail}
-          />
-          <View style={{ height: 12 }} />
 
-          <Input
-            placeholder="Senha"
-            secureTextEntry
-            value={password}
-            onChangeText={setPassword}
-          />
+        <Container>
+          <View style={styles.inputContainer}>
+            <Input
+              placeholder="E-mail"
+              keyboardType="email-address"
+              autoCapitalize="none"
+              value={email}
+              onChangeText={setEmail}
+            />
 
-          <Button onPress={() => {}}>Login</Button>
-          <Button onPress={() => {}} mode="outline">
-            Cadastrar
-          </Button>
-        </View>
+            <Input
+              placeholder="Senha"
+              secureTextEntry
+              value={password}
+              onChangeText={setPassword}
+            />
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button onPress={() => {}} label="Login" />
+            <View style={styles.registerContainer}>
+              <Text style={styles.text}>Ainda não tem uma conta?</Text>
+              <Button onPress={() => {}} mode="outline" label="Cadastrar" />
+            </View>
+          </View>
+        </Container>
       </ScrollView>
     </KeyboardAvoidingView>
   );
