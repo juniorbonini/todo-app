@@ -6,7 +6,7 @@ import {
 } from "@/interfaces/auth-context";
 import { api } from "@/services/api";
 import * as SecureStore from "expo-secure-store";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
@@ -58,3 +58,9 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     </AuthContext.Provider>
   );
 }
+
+export function useAuthContext() {
+  const context = useContext(AuthContext);
+  return context;
+}
+
