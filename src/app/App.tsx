@@ -1,9 +1,10 @@
-import { Home } from "@/screens/Home";
+import { SignIn } from "@/screens/SignIn";
 
 export default function App() {
   return (
     <>
-      <Home />
+      {/* <Home /> */}
+      <SignIn />
     </>
   );
 }
