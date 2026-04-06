@@ -8,8 +8,12 @@ import { styles } from "./style";
 export function TaskItem({ task, onToggle, onDelete }: TaskProps) {
   const { description, isCompleted, id } = task;
 
-  function handleToggle() { onToggle(id) }
-  function handleDelete() { onDelete(id) }
+  function handleToggle() {
+    onToggle(id);
+  }
+  function handleDelete() {
+    onDelete(id);
+  }
 
   return (
     <View style={styles.container}>
@@ -27,10 +31,7 @@ export function TaskItem({ task, onToggle, onDelete }: TaskProps) {
       </Pressable>
 
       <Text
-        style={[
-          styles.description,
-          isCompleted && styles.descriptionCompleted,
-        ]}
+        style={[styles.description, isCompleted && styles.descriptionCompleted]}
       >
         {description}
       </Text>
