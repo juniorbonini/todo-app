@@ -1,25 +1,36 @@
 import { Text, View } from "react-native";
 
 import { TaskSummaryProps } from "@/interfaces/task";
+import { Color } from "@/style/Color";
+import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "./style";
 
-export function TaskSummary({ tasks }: TaskSummaryProps) {
+export function TaskSummary({ tasksSummary }: TaskSummaryProps) {
   return (
-    <View style={styles.container}>
-      <View style={styles.counter}>
+    <View style={styles.counter}>
+      <View style={styles.created}>
         <Text style={[styles.counterText, styles.created]}>Criadas</Text>
-        <View style={styles.counterBadge}>
-          <Text style={styles.value}>{tasks.length}</Text>
-        </View>
+        <LinearGradient
+          colors={[Color.blue["blue-light"], Color.purple["purple-light"]]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.counterBadge}
+        >
+          <Text style={styles.value}>{tasksSummary.length}</Text>
+        </LinearGradient>
       </View>
-
-      <View style={styles.counter}>
+      <View style={styles.completed}>
         <Text style={[styles.counterText, styles.completed]}>Concluídas</Text>
-        <View style={styles.counterBadge}>
+        <LinearGradient
+          colors={[Color.blue["blue-light"], Color.purple["purple-light"]]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.counterBadge}
+        >
           <Text style={styles.value}>
-            {tasks.filter((t) => t.isCompleted).length}
+            {tasksSummary.filter((t) => t.isCompleted).length}
           </Text>
-        </View>
+        </LinearGradient>
       </View>
     </View>
   );

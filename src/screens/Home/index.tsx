@@ -15,7 +15,7 @@ import { TaskItem } from "@/components/Task";
 import { useTasks } from "@/hooks/useTasks";
 
 export function Home() {
-  const { task, onAddTask, removeTask, toggleTask } = useTasks();
+  const { tasks, onAddTask, removeTask, toggleTask } = useTasks();
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_700Bold,
@@ -30,9 +30,9 @@ export function Home() {
       <Header />
       <Container>
         <CreateTask addTask={onAddTask} />
-        <TaskSummary tasks={task} />
+        <TaskSummary tasksSummary={tasks} />
         <FlatList
-          data={task}
+          data={tasks}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <TaskItem task={item} onToggle={toggleTask} onDelete={removeTask} />
