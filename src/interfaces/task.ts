@@ -1,5 +1,5 @@
 export interface TaskSummaryProps {
-  tasks: Task[];
+  tasksSummary: Task[];
 }
 
 export interface Task {

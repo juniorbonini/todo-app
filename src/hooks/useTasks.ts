@@ -2,7 +2,7 @@ import { Task } from "@/interfaces/task";
 import { useState } from "react";
 
 export function useTasks() {
-  const [task, setTask] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
 
   function onAddTask(description: string) {
     const newTask: Task = {
@@ -10,11 +10,11 @@ export function useTasks() {
       description,
       isCompleted: false,
     };
-    setTask((prev) => [...prev, newTask]);
+    setTasks((prev) => [...prev, newTask]);
   }
 
   function toggleTask(id: string) {
-    setTask((prevState) =>
+    setTasks((prevState) =>
       prevState.map((task) =>
         task.id === id ? { ...task, isCompleted: !task.isCompleted } : task,
       ),
@@ -22,7 +22,7 @@ export function useTasks() {
   }
 
   function removeTask(id: string) {
-    setTask((prevState) => prevState.filter((task) => task.id !== id));
+    setTasks((prevState) => prevState.filter((task) => task.id !== id));
   }
-  return { task, onAddTask, toggleTask, removeTask };
+  return { tasks, onAddTask, toggleTask, removeTask };
 }
