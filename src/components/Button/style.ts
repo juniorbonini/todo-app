@@ -3,26 +3,36 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    padding: 12,
-    borderRadius: 8,
-    justifyContent: "center",
+    borderRadius: 16,
+    overflow: "hidden",
+  },
+  fillWrapper: {
+    borderRadius: 16,
+  },
+  gradient: {
+    paddingVertical: 14,
+    paddingHorizontal: 22,
     alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 16,
   },
   outline: {
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: Color.blue["blue-dark"],
-    color: Color.blue["blue-dark"],
-  },
-  fill: {
-    backgroundColor: Color.blue["blue-dark"],
-    color: Color.gray[200],
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "transparent",
   },
   label: {
-    fontSize: 18,
-    letterSpacing: 0.6,
+    fontSize: 16,
+    letterSpacing: 0.4,
+    fontWeight: "700",
   },
   fillLabel: {
-    color: Color.gray[700],
+    color: Color.gray[100],
   },
   outlineLabel: {
     color: Color.blue["blue-dark"],
