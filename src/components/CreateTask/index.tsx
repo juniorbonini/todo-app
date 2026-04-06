@@ -42,7 +42,7 @@ export function CreateTask({ addTask }: FormProps) {
           },
         ]}
       />
-      <Button onPress={handleAdd} mode="outline">
+      <Button onPress={handleAdd}>
         <MaterialIcons name="add" size={24} color={Color.gray[100]} />
       </Button>
     </View>

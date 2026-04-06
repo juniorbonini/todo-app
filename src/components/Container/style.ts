@@ -5,6 +5,6 @@ export const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     paddingHorizontal: 24,
-    backgroundColor: Color.gray[600],
+    backgroundColor: Color.gray[700],
   },
 });
