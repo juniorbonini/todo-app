@@ -1,15 +1,16 @@
 import { Color } from "@/style/Color";
-import { fontFamily } from "@/style/Fontfamily";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   input: {
-    width: 271,
-    padding: 16,
-    fontFamily: fontFamily.regular,
-    backgroundColor: Color.gray[500],
-    borderRadius: 8,
-    borderWidth: 1,
-    color: Color.gray[200],
+    flex: 1,
+    color: Color.gray[100],
+    fontSize: 15,
+  },
+  errorText: {
+    color: Color.red["red-dark"],
+    fontSize: 12,
+    marginTop: 4,
+    marginLeft: 2,
   },
 });
