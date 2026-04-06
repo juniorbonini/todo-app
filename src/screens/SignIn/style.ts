@@ -2,44 +2,114 @@ import { Color } from "@/style/Color";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: Color.gray[600],
-    paddingHorizontal: 24,
+  hero: {
+    alignItems: "center",
+    paddingTop: 32,
+    paddingBottom: 32,
   },
-  inputContainer: {
+  logoWrapper: {
+    width: 74,
+    height: 74,
+    borderRadius: 18,
+    backgroundColor: Color.blue["blue-dark"],
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 20,
+  },
+  logo: {
+    width: 112,
+    height: 112,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "700",
+    color: Color.gray[100],
+    marginBottom: 6,
+  },
+  subtitle: {
+    fontSize: 14,
+    color: Color.gray[300],
+  },
+
+  tabContainer: {
+    flexDirection: "row",
+    backgroundColor: Color.gray[500],
+    borderRadius: 12,
+    padding: 4,
+    marginBottom: 32,
+  },
+  tab: {
+    flex: 1,
+    paddingVertical: 2,
+    borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "column",
-    gap: 20,
-    marginBottom: 50,
-    paddingTop: 100,
   },
-  buttonContainer: {
+
+  tabActive: {
     flex: 1,
-    justifyContent: "space-between",
-    flexDirection: "column",
+    width: "100%",
+    borderRadius: 10,
+    paddingVertical: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  tabText: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: Color.gray[300],
+  },
+  tabTextActive: {
+    color: Color.gray[100],
+  },
+
+  form: {
     gap: 20,
+    marginBottom: 32,
+  },
+  fieldGroup: {
+    gap: 8,
+  },
+  label: {
+    fontSize: 11,
+    fontWeight: "700",
+    color: Color.gray[300],
+    letterSpacing: 1,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 14,
+    borderWidth: 1,
+    borderColor: "transparent",
+  },
+  forgotWrapper: {
+    alignSelf: "flex-end",
+  },
+  forgotText: {
+    fontSize: 13,
+    color: Color.blue["blue-dark"],
+    fontWeight: "600",
+    paddingHorizontal: 26,
+  },
+
+  ctaContainer: {
+    flexDirection: "column",
+    gap: 122,
+    paddingHorizontal: 24,
+    paddingBottom: 40,
+  },
+  gradientButton: {
+    borderRadius: 14,
+    overflow: "hidden",
   },
   registerContainer: {
     flexDirection: "column",
-    gap: 5,
-    marginBottom: 35,
+    gap: 8,
   },
-  text: {
-    color: Color.gray[300],
-    fontWeight: "bold",
-    fontSize: 12,
+  textRegister: {
+    fontSize: 13,
+    color: Color.purple["purple-dark"],
     textDecorationLine: "underline",
-  },
-  logoContainer: {
-    alignItems: "center",
-    paddingTop: 80,
-    paddingBottom: 48,
-  },
-  image: {
-    width: 110,
-    height: 32,
-    backgroundColor: "transparent",
   },
 });
