@@ -9,6 +9,7 @@ export function Input({ containerStyle, icon, error, ...rest }: InputProps) {
     <View style={[containerStyle]}>
       <View
         style={[
+          styles.inputContainer,
           containerStyle,
           error ? { borderColor: Color.red["red-dark"], borderWidth: 1 } : {},
         ]}
