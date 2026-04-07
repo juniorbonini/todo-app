@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity } from "react-native";
 
-import { ButtonProps } from "@/interfaces/button";
+import { ButtonProps } from "@/components/Button/button-props";
 import { Gradients } from "@/utils/gradient-linear";
 import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "./style";

@@ -1,6 +1,6 @@
 import { Keyboard, Pressable } from "react-native";
 
-import { ContainerProps } from "@/interfaces/container";
+import { ContainerProps } from "@/components/Container/container-props";
 import { styles } from "./style";
 
 export function Container({ children }: ContainerProps) {

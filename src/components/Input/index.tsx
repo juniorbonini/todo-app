@@ -1,6 +1,6 @@
 import { Text, TextInput, View } from "react-native";
 
-import { InputProps } from "@/interfaces/input";
+import { InputProps } from "@/components/Input/input-props";
 import { Color } from "@/style/Color";
 import { styles } from "./style";
 

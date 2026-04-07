@@ -1,4 +1,4 @@
-import { FormProps } from "@/interfaces/form";
+import { FormProps } from "@/components/CreateTask/create-task-props";
 import { Color } from "@/style/Color";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useState } from "react";

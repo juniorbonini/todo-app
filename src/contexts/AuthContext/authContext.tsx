@@ -3,7 +3,7 @@ import {
   AuthContextProviderProps,
   CredentialsData,
   UserData,
-} from "@/interfaces/auth-context";
+} from "@/contexts/AuthContext/auth-context";
 import { RegisterFormData } from "@/schemas/Register/register-schema";
 import { api } from "@/services/api";
 import * as SecureStore from "expo-secure-store";

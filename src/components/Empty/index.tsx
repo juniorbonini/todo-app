@@ -1,7 +1,7 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { Text, View } from "react-native";
 
-import { EmptyProps } from "@/interfaces/empty";
+import { EmptyProps } from "@/components/Empty/empty-props";
 import { Color } from "@/style/Color";
 import { styles } from "./style";
 

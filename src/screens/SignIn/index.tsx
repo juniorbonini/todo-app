@@ -1,7 +1,7 @@
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Input } from "@/components/Input";
-import { useAuthContext } from "@/contexts/authContext";
+import { useAuthContext } from "@/contexts/AuthContext/authContext";
 import { Color } from "@/style/Color";
 import { Gradients } from "@/utils/gradient-linear";
 import { MaterialIcons } from "@expo/vector-icons";

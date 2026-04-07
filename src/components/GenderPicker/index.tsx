@@ -1,4 +1,4 @@
-import { GenderPickerProps } from "@/interfaces/gender-picker";
+import { GenderPickerProps } from "@/components/GenderPicker/gender-picker-props";
 import { Color } from "@/style/Color";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useState } from "react";

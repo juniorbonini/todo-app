@@ -1,7 +1,8 @@
 import { Button } from "@/components/Button";
 import { GenderPicker } from "@/components/GenderPicker";
 import { Input } from "@/components/Input";
-import { useAuthContext } from "@/contexts/authContext";
+import { useAuthContext } from "@/contexts/AuthContext/authContext";
+import { useFormatter } from "@/hooks/useFormatter";
 import {
   RegisterFormData,
   registerSchema,
@@ -20,13 +21,12 @@ import {
   View,
 } from "react-native";
 import { styles } from "./style";
-import { useFormatter } from "@/hooks/useFormatter";
 
 const logoImage = require("../../assets/todo-new.png");
 
 export function SignUp() {
   const { signUp } = useAuthContext();
-  const { formatBirthDate, calculateAge } = useFormatter()
+  const { formatBirthDate, calculateAge } = useFormatter();
 
   const {
     control,
