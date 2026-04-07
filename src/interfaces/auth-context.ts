@@ -1,9 +1,11 @@
+import { RegisterFormData } from "@/schemas/Register/register-schema";
 import { ReactNode } from "react";
 
 export interface AuthContextData {
   signed: boolean;
   user: UserData | null;
   signIn({ email, password }: CredentialsData): Promise<void>;
+  signUp(data: RegisterFormData): Promise<void>;
   signOut(): void;
   loading: boolean;
 }

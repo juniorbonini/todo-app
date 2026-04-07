@@ -1,9 +1,9 @@
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Input } from "@/components/Input";
-import { Gradients } from "@/utils/Gradient";
 import { useAuthContext } from "@/contexts/authContext";
 import { Color } from "@/style/Color";
+import { Gradients } from "@/utils/gradient-linear";
 import { MaterialIcons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";

@@ -4,6 +4,7 @@ import {
   CredentialsData,
   UserData,
 } from "@/interfaces/auth-context";
+import { RegisterFormData } from "@/schemas/Register/register-schema";
 import { api } from "@/services/api";
 import * as SecureStore from "expo-secure-store";
 import { createContext, useContext, useEffect, useState } from "react";
@@ -37,6 +38,15 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     await SecureStore.setItemAsync("todo_user", JSON.stringify(userData));
   }
 
+  async function signUp(data: RegisterFormData) {
+    const response = await api.post("auth/register", data);
+    const { token, user: userData } = response.data;
+
+    setUser(userData);
+    await SecureStore.setItemAsync("todo_token", token);
+    await SecureStore.setItemAsync("todo_user", JSON.stringify(userData));
+  }
+
   function signOut() {
     SecureStore.deleteItemAsync("todo_token");
     SecureStore.deleteItemAsync("todo_user");
@@ -48,6 +58,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     <AuthContext.Provider
       value={{
         signIn,
+        signUp,
         signOut,
         loading,
         signed: !!user,

@@ -30,6 +30,7 @@ export const registerSchema = z
         return date instanceof Date && !isNaN(date.getTime()) && date < today;
       }, "Data de nascimento inválida"),
     gender: z.string().min(1, "O gênero é obrigatório"),
+    age: z.number().min(0, "Idade inválida"),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "As senhas nåo coincidem",

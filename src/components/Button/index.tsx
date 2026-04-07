@@ -1,15 +1,9 @@
 import { Text, TouchableOpacity } from "react-native";
 
 import { ButtonProps } from "@/interfaces/button";
-import { Color } from "@/style/Color";
+import { Gradients } from "@/utils/gradient-linear";
 import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "./style";
-
-interface ButtonOutlineProps {
-  borderWidth: number;
-  borderColor: string;
-  color: string;
-}
 
 export function Button({
   onPress,
@@ -26,16 +20,7 @@ export function Button({
       onPress={onPress}
     >
       {isFill ? (
-        <LinearGradient
-          colors={[
-            Color.blue["blue-gradient"],
-            Color.purple["purple-gradient"],
-            Color.purple["purple-gradient-dark"],
-          ]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={styles.gradient}
-        >
+        <LinearGradient {...Gradients.primary} style={styles.gradient}>
           {label ? (
             <Text style={[styles.label, styles.fillLabel]}>{label}</Text>
           ) : (
