@@ -1,8 +1,10 @@
-import { ReactNode } from "react";
 import { StyleProp, TextInputProps, ViewStyle } from "react-native";
 
+import { MaterialIcons } from "@expo/vector-icons";
+
 export interface InputProps extends TextInputProps {
-  containerStyle?: StyleProp<ViewStyle>;
-  icon?: ReactNode;
   error?: string;
+  label: string;
+  icon?: keyof typeof MaterialIcons.glyphMap;
+  showPassworToggle?: boolean;
 }
