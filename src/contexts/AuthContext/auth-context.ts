@@ -1,11 +1,12 @@
-import { RegisterFormData } from "@/schemas/Register/register-schema";
+import { SignInFormData } from "@/schemas/Login/login-schema";
+import { SignupFormData } from "@/schemas/Register/register-schema";
 import { ReactNode } from "react";
 
 export interface AuthContextData {
   signed: boolean;
   user: UserData | null;
-  signIn({ email, password }: CredentialsData): Promise<void>;
-  signUp(data: RegisterFormData): Promise<void>;
+  signIn(data: SignInFormData): Promise<void>;
+  signUp(data: SignupFormData): Promise<void>;
   signOut(): void;
   loading: boolean;
 }
@@ -18,9 +19,4 @@ export interface UserData {
   id: string;
   email: string;
   name: string;
-}
-
-export interface CredentialsData {
-  email: string;
-  password: string;
 }

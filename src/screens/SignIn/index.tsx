@@ -17,8 +17,8 @@ import {
   View,
 } from "react-native";
 import { styles } from "./style";
-
-const logoImage = require("../../assets/todo-new.png");
+import { Hero } from "@/components/Hero";
+import { TabSwitcher } from "@/components/TabSwitcher";
 
 type Tab = "login" | "register";
 
@@ -55,42 +55,9 @@ export function SignIn() {
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
         >
-          <View style={styles.hero}>
-            <View>
-              <Image source={logoImage} style={styles.logo} />
-            </View>
-            <Text style={styles.title}>Bem-vindo de volta</Text>
-            <Text style={styles.subtitle}>Entre para continuar</Text>
-          </View>
+          <Hero />
 
-          <View style={styles.tabContainer}>
-            <Pressable onPress={() => setActiveTab("login")} style={styles.tab}>
-              {activeTab === "login" ? (
-                <LinearGradient {...Gradients.primary} style={styles.tabActive}>
-                  <Text style={[styles.tabText, styles.tabTextActive]}>
-                    Login
-                  </Text>
-                </LinearGradient>
-              ) : (
-                <Text style={styles.tabText}>Login</Text>
-              )}
-            </Pressable>
-
-            <Pressable
-              onPress={() => setActiveTab("register")}
-              style={styles.tab}
-            >
-              {activeTab === "register" ? (
-                <LinearGradient {...Gradients.primary} style={styles.tabActive}>
-                  <Text style={[styles.tabText, styles.tabTextActive]}>
-                    Registro
-                  </Text>
-                </LinearGradient>
-              ) : (
-                <Text style={styles.tabText}>Registro</Text>
-              )}
-            </Pressable>
-          </View>
+         <TabSwitcher />
 
           <View style={styles.form}>
               <Input
