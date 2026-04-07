@@ -4,7 +4,6 @@ import { Input } from "@/components/Input";
 import { useAuthContext } from "@/contexts/AuthContext/authContext";
 import { Color } from "@/style/Color";
 import { Gradients } from "@/utils/gradient-linear";
-import { MaterialIcons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import {
@@ -94,45 +93,27 @@ export function SignIn() {
           </View>
 
           <View style={styles.form}>
-            <View style={styles.fieldGroup}>
-              <Text style={styles.label}>E-MAIL</Text>
               <Input
-                containerStyle={styles.inputContainer}
+                label="E-MAIL"
                 placeholder="seu@email.com"
                 keyboardType="email-address"
                 autoCapitalize="none"
                 value={email}
                 onChangeText={setEmail}
-                icon={
-                  <MaterialIcons
-                    name="mail-outline"
-                    size={18}
-                    color="#808080"
-                  />
-                }
+                icon="mail"
               />
-            </View>
 
-            <View style={styles.fieldGroup}>
-              <Text style={styles.label}>SENHA</Text>
               <Input
-                containerStyle={styles.inputContainer}
+                label="SENHA"
                 placeholder="••••••••"
                 secureTextEntry
                 value={password}
                 onChangeText={setPassword}
-                icon={
-                  <MaterialIcons
-                    name="lock-outline"
-                    size={18}
-                    color="#808080"
-                  />
-                }
+                icon="lock-outline"
               />
-              <Pressable style={styles.forgotWrapper}>
-                <Text style={styles.forgotText}>Esqueceu a senha?</Text>
-              </Pressable>
-            </View>
+            <Pressable style={styles.forgotWrapper}>
+              <Text style={styles.forgotText}>Esqueceu a senha?</Text>
+            </Pressable>
           </View>
 
           <View style={styles.ctaContainer}>

@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   hero: {
     alignItems: "center",
-    paddingTop: 32,
+    paddingTop: 62,
     paddingBottom: 32,
   },
   logoWrapper: {
@@ -66,22 +66,6 @@ export const styles = StyleSheet.create({
   form: {
     gap: 20,
     marginBottom: 32,
-  },
-  fieldGroup: {
-    gap: 8,
-  },
-  label: {
-    fontSize: 11,
-    fontWeight: "700",
-    color: Color.gray[300],
-    letterSpacing: 1,
-  },
-  inputContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 14,
-    borderWidth: 1,
-    borderColor: "transparent",
   },
   forgotWrapper: {
     alignSelf: "flex-end",

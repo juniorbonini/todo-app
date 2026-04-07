@@ -12,7 +12,7 @@ import { Header } from "@/components/Header";
 import { Loading } from "@/components/Loading";
 import { TaskSummary } from "@/components/Summary";
 import { TaskItem } from "@/components/Task";
-import { useTasks } from "@/hooks/useTasks";
+import { useTasks } from "@/hooks/Tasks/useTasks";
 
 export function Home() {
   const { tasks, onAddTask, removeTask, toggleTask } = useTasks();
