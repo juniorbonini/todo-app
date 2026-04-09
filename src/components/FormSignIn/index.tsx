@@ -86,10 +86,7 @@ export function SignInForm() {
           onPress={handleSubmit(onSubmit)}
           label={isSubmitting ? "Entrando..." : "Entrar"}
         />
-        <View style={styles.registerContainer}>
-          <Text style={styles.textRegister}>Ainda não tem uma conta?</Text>
-          <Button label="Cadastrar" mode="outline" onPress={() => {}} />
-        </View>
+
       </View>
     </>
   );
