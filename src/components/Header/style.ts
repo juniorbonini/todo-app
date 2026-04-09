@@ -4,66 +4,113 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: Color.gray[700],
-    paddingHorizontal: 24,
-    paddingTop: 56,
-    paddingBottom: 24,
-    gap: 20,
+    paddingTop: 50,
+    gap: 16,
+    borderBottomWidth: 1,
+    paddingVertical: 16,
+    borderBottomColor: "rgba(255,255,255,0.1)",
   },
-  top: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  logo: {
-    width: 100,
-    height: 28,
-    resizeMode: "contain",
-  },
-  logoutButton: {
+
+  row: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 4,
+    gap: 12,
   },
-  logoutText: {
-    color: Color.gray[300],
-    fontSize: 14,
+
+  avatarWrapper: {
+    position: "relative",
   },
-  bottom: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-end",
+  imageContainer: {
+    justifyContent: "center",
+    alignItems: "center",
   },
-  greeting: {
-    gap: 2,
+  image: {
+    width: 150,
+    height: 125,
   },
-  greetingHello: {
-    color: Color.gray[300],
-    fontSize: 14,
+
+  lvlBadge: {
+    position: "absolute",
+    bottom: -0.5,
+    right: 6,
+    backgroundColor: Color.gray[600],
+    borderRadius: 8,
+    paddingHorizontal: 5,
+    paddingVertical: 1,
+    borderWidth: 1,
+    borderColor: Color.purple["purple-dark"],
   },
-  greetingName: {
-    color: Color.gray[100],
-    fontSize: 22,
+  lvlText: {
+    color: Color.purple["purple-light"],
+    fontSize: 10,
     fontWeight: "700",
   },
-  greetingSubtitle: {
+
+  greetingBlock: {
+    flex: 1,
+    gap: 4,
+  },
+  hello: {
     color: Color.gray[300],
-    fontSize: 13,
-    marginTop: 2,
+    fontSize: 12,
   },
-  newTaskButton: {
-    borderRadius: 12,
-    overflow: "hidden",
+  name: {
+    color: Color.gray[100],
+    fontSize: 18,
+    fontWeight: "700",
+    lineHeight: 22,
   },
-  newTaskButtonInner: {
+  xpRow: {
     flexDirection: "row",
     alignItems: "center",
     gap: 6,
-    paddingVertical: 10,
-    paddingHorizontal: 14,
+    marginTop: 2,
   },
-  newTaskText: {
-    color: Color.gray[100],
-    fontSize: 14,
+  xpBarTrack: {
+    flex: 1,
+    height: 4,
+    backgroundColor: Color.gray[500],
+    borderRadius: 2,
+    overflow: "hidden",
+  },
+  xpBar: {
+    height: "100%",
+    borderRadius: 2,
+  },
+  xpLabel: {
+    color: Color.gray[300],
+    fontSize: 10,
     fontWeight: "600",
+    minWidth: 52,
+    textAlign: "right",
+  },
+
+  actions: {
+    alignItems: "center",
+    gap: 8,
+    marginBottom: 25,
+  },
+
+  streakBadge: {
+    backgroundColor: "rgba(239,159,39,0.15)",
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderWidth: 1,
+    borderColor: "rgba(239,159,39,0.3)",
+    maxWidth: 180,
+    marginTop: 16,
+  },
+
+  streakContainer: {
+    marginInline: "auto",
+  },
+  streakText: {
+    fontSize: 12,
+    fontWeight: "700",
+    color: "#EF9F27",
+  },
+  logoutButton: {
+    padding: 4,
   },
 });
