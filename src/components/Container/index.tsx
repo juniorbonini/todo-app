@@ -1,12 +1,8 @@
-import { Keyboard, Pressable } from "react-native";
+import { View } from "react-native";
 
 import { ContainerProps } from "@/components/Container/container-props";
 import { styles } from "./style";
 
 export function Container({ children }: ContainerProps) {
-  return (
-    <Pressable onPress={Keyboard.dismiss} style={styles.contentContainer}>
-      {children}
-    </Pressable>
-  );
+  return <View style={styles.contentContainer}>{children}</View>;
 }

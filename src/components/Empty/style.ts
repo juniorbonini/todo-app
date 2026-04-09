@@ -11,13 +11,13 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontFamily: fontFamily.bold,
-    fontSize: 16,
+    fontSize: 14,
     color: Color.gray[300],
     marginTop: 16,
   },
   text: {
     fontFamily: fontFamily.regular,
-    fontSize: 14,
+    fontSize: 12,
     color: Color.gray[300],
   },
 });

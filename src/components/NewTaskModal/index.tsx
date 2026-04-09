@@ -55,9 +55,7 @@ export function NewTaskModal({ visible, onClose, onAdd }: NewTaskModalProps) {
             onChangeText={setDescription}
             autoFocus
           />
-          <LinearGradient {...Gradients.primary}>
             <Button label="Adicionar tarefa" onPress={handleAdd} />
-          </LinearGradient>
         </Pressable>
       </Pressable>
     </Modal>
