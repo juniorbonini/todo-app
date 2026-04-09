@@ -1,9 +1,9 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { Pressable, Text, View } from "react-native";
 
-import { TaskProps } from "@/interfaces/task";
-import { Color } from "@/style/Color";
 import { styles } from "./style";
+import { TaskProps } from "./task";
+import { Color } from "@/style/Color";
 
 export function TaskItem({ task, onToggle, onDelete }: TaskProps) {
   const { description, isCompleted, id } = task;
