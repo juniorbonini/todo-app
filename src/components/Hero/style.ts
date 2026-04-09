@@ -8,8 +8,8 @@ export const styles = StyleSheet.create({
     paddingBottom: 32,
   },
   logo: {
-    width: 112,
-    height: 112,
+    width: 150,
+    height: 150,
   },
   title: {
     fontSize: 24,

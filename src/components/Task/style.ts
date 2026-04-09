@@ -8,7 +8,6 @@ export const styles = StyleSheet.create({
     overflow: "hidden",
   },
 
-  // Swipe backgrounds
   swipeLeft: {
     position: "absolute",
     right: 0,
@@ -22,6 +21,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     gap: 6,
   },
+  
   swipeRight: {
     position: "absolute",
     left: 0,
@@ -35,13 +35,13 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     gap: 6,
   },
+
   swipeText: {
     color: Color.gray[100],
     fontSize: 13,
     fontWeight: "600",
   },
 
-  // Card
   container: {
     flexDirection: "row",
     alignItems: "center",
@@ -51,7 +51,6 @@ export const styles = StyleSheet.create({
     gap: 12,
   },
 
-  // Circle toggle
   circle: {
     width: 24,
     height: 24,
@@ -61,36 +60,42 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+
   circleCompleted: {
     borderColor: Color.purple["purple-dark"],
     backgroundColor: Color.purple["purple-dark"],
   },
+
   circlePulse: {
     position: "absolute",
     width: "100%",
     height: "100%",
     borderRadius: 12,
   },
+
   circlePulseCompleted: {
     backgroundColor: Color.purple["purple-dark"],
   },
+
   checkIcon: {
     alignItems: "center",
     justifyContent: "center",
   },
 
-  // Text + strikethrough
   textWrapper: {
     flex: 1,
     justifyContent: "center",
   },
+
   description: {
     color: Color.gray[100],
     fontSize: 15,
   },
+
   descriptionCompleted: {
     color: Color.gray[300],
   },
+
   strikethrough: {
     position: "absolute",
     height: 1.5,

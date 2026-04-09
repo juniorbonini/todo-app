@@ -2,7 +2,7 @@ import { Image, Text, View } from "react-native";
 import { HeroProps } from "./hero-props";
 import { styles } from "./style";
 
-const logoImage = require("../../assets/todo-new.png");
+const logoImage = require("../../assets/ascending-logo.png");
 
 export function Hero({ title, subtitle }: HeroProps) {
   return (

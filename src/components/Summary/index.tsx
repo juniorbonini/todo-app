@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-import { TaskSummaryProps } from "@/interfaces/task";
+import { TaskSummaryProps } from "@/components/Task/task";
 import { Color } from "@/style/Color";
 import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "./style";
