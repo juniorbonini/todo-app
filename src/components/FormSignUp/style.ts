@@ -15,4 +15,15 @@ export const styles = StyleSheet.create({
   ctaContainer: {
     paddingBottom: 40,
   },
+  genderLabel: {
+    fontSize: 11,
+    fontWeight: "700",
+    color: Color.gray[300],
+    letterSpacing: 1,
+    textTransform: "uppercase",
+  },
+  genderContainer: {
+    flexDirection: "column",
+    gap: 5,
+  }
 });

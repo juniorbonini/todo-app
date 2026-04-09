@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   trigger: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: Color.gray[500],
+    backgroundColor: Color.gray[600],
     borderRadius: 12,
     paddingHorizontal: 14,
     paddingVertical: 14,
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   modal: {
-    backgroundColor: Color.gray[500],
+    backgroundColor: Color.gray[600],
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     paddingHorizontal: 24,
@@ -53,8 +53,8 @@ export const styles = StyleSheet.create({
   },
   modalTitle: {
     color: Color.gray[100],
-    fontSize: 16,
-    fontWeight: "700",
+    fontSize: 18,
+    fontWeight: "600",
   },
   option: {
     flexDirection: "row",
@@ -66,7 +66,7 @@ export const styles = StyleSheet.create({
     borderBottomColor: Color.gray[400],
   },
   optionSelected: {
-    backgroundColor: "transparent",
+    backgroundColor: Color.gray[700],
   },
   optionText: {
     color: Color.gray[200],

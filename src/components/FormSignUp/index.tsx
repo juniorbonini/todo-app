@@ -1,16 +1,16 @@
+import { AxiosError } from "axios";
+import { Controller } from "react-hook-form";
+import { Alert, Text, View } from "react-native";
+
+import { Button } from "@/components/Button";
+import { GenderPicker } from "@/components/GenderPicker";
+import { Input } from "@/components/Input";
 import { useAuthContext } from "@/contexts/AuthContext/authContext";
 import { useSignUpForm } from "@/hooks/SignUpForm";
 import { SignUpFormData } from "@/schemas/Register/register-schema";
 import { ApiErrorResponse } from "@/utils/AxiosErrorInterface/axios-error.props";
-import { formatBirthDate } from "@/utils/formatBirthDate";
-
 import { calculateAge } from "@/utils/calculateAge";
-import { AxiosError } from "axios";
-import { Controller } from "react-hook-form";
-import { Alert, Text, View } from "react-native";
-import { Button } from "../Button";
-import { GenderPicker } from "../GenderPicker";
-import { Input } from "../Input";
+import { formatBirthDate } from "@/utils/formatBirthDate";
 import { styles } from "./style";
 
 export function SignUpForm() {
@@ -23,7 +23,6 @@ export function SignUpForm() {
     birthDateValue?.length === 10 ? calculateAge(birthDateValue) : null;
 
   async function onSubmit(data: SignUpFormData) {
-    const calculatedAge = calculateAge(data.birthDate) ?? 0;
     try {
       await signUp(data);
     } catch (error: unknown) {
@@ -139,11 +138,16 @@ export function SignUpForm() {
           control={control}
           name="gender"
           render={({ field: { onChange, value } }) => (
-            <GenderPicker
-              value={value}
-              onChange={onChange}
-              error={errors.gender?.message}
-            />
+            <>
+              <View style={styles.genderContainer}>
+                <Text style={styles.genderLabel}>Selecione o gênero</Text>
+                <GenderPicker
+                  value={value}
+                  onChange={onChange}
+                  error={errors.gender?.message}
+                />
+              </View>
+            </>
           )}
         />
       </View>

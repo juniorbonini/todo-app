@@ -50,7 +50,7 @@ export function SignInForm() {
           render={({ field: { onChange, value } }) => (
             <Input
               label="E-MAIL"
-              placeholder="sei@email.com"
+              placeholder="seu@email.com"
               keyboardType="email-address"
               autoCapitalize="none"
               value={value}

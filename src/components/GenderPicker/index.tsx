@@ -49,7 +49,7 @@ export function GenderPicker({ error, value, onChange }: GenderPickerProps) {
         {error && <Text style={styles.errorText}>{error}</Text>}
       </TouchableOpacity>
 
-      <Modal visible={false} transparent animationType="fade">
+      <Modal visible={visible} transparent animationType="fade">
         <Pressable style={styles.overlay} onPress={() => setVisible(false)}>
           <Pressable style={styles.modal} onPress={(e) => e.stopPropagation()}>
             <View style={styles.modalHeader}>
