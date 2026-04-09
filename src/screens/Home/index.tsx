@@ -5,10 +5,8 @@ import {
 } from "@expo-google-fonts/inter";
 import { FlatList } from "react-native";
 
-import { Container } from "@/components/Container";
 import { CreateTask } from "@/components/CreateTask";
 import { Empty } from "@/components/Empty";
-import { Header } from "@/components/Header";
 import { Loading } from "@/components/Loading";
 import { TaskSummary } from "@/components/Summary";
 import { TaskItem } from "@/components/Task";
@@ -27,7 +25,6 @@ export function Home() {
 
   return (
     <>
-      <Header />
         <CreateTask addTask={onAddTask} />
         <TaskSummary tasksSummary={tasks} />
         <FlatList

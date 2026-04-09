@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { KeyboardAvoidingView, ScrollView, Text, View } from "react-native";
+import { KeyboardAvoidingView, ScrollView, View } from "react-native";
 
+import { SignInForm } from "@/components/FormSignIn";
 import { Hero } from "@/components/Hero";
 import { TabSwitcher } from "@/components/TabSwitcher";
 import { useEffect, useRef } from "react";
-import { SignIn } from "../SignIn";
-import { SignInForm } from "@/components/FormSignIn";
 
 export function Auth() {
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
@@ -22,7 +21,6 @@ export function Auth() {
         showsVerticalScrollIndicator={false}
       >
         <View>
-          <Text style={{ color: "white" }}>Texto qualquer para teste</Text>
           <Hero
             title={activeTab === "login" ? "Bem-vindo de volta" : "Criar conta"}
             subtitle={
