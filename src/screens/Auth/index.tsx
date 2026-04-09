@@ -2,6 +2,7 @@ import { useState } from "react";
 import { KeyboardAvoidingView, ScrollView, View } from "react-native";
 
 import { SignInForm } from "@/components/FormSignIn";
+import { SignUpForm } from "@/components/FormSignUp";
 import { Hero } from "@/components/Hero";
 import { TabSwitcher } from "@/components/TabSwitcher";
 import { useEffect, useRef } from "react";
@@ -32,7 +33,7 @@ export function Auth() {
 
           <TabSwitcher activeTab={activeTab} onChange={setActiveTab} />
 
-          {activeTab === "login" && <SignInForm />}
+          {activeTab === "login" ? <SignInForm /> : <SignUpForm />}
         </View>
       </ScrollView>
     </KeyboardAvoidingView>

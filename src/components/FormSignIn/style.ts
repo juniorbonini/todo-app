@@ -18,8 +18,8 @@ export const styles = StyleSheet.create({
 
   ctaContainer: {
     flexDirection: "column",
-    gap: 122,
-    paddingHorizontal: 24,
+    gap: 100,
+    paddingHorizontal: 4,
     paddingBottom: 40,
   },
   gradientButton: {

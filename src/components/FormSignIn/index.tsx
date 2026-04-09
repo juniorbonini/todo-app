@@ -1,17 +1,13 @@
 import { useAuthContext } from "@/contexts/AuthContext/authContext";
 import { useSignInForm } from "@/hooks/SignInForm";
 import { SignInFormData } from "@/schemas/Login/login-schema";
+import { ApiErrorResponse } from "@/utils/AxiosErrorInterface/axios-error.props";
 import { AxiosError } from "axios";
 import { Controller } from "react-hook-form";
 import { Alert, Pressable, Text, View } from "react-native";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { styles } from "./style";
-
-type ApiErrorResponse = {
-  message?: string;
-  field?: keyof SignInFormData;
-};
 
 export function SignInForm() {
   const { control, handleSubmit, errors, isSubmitting, setError } =
@@ -29,7 +25,7 @@ export function SignInForm() {
         const response = axiosError.response?.data;
 
         if (response?.field && response?.message) {
-          setError(response.field, {
+          setError(response.field as keyof SignInFormData, {
             type: "manual",
             message: response.message,
           });
