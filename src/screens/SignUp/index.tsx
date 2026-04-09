@@ -2,11 +2,6 @@ import { Button } from "@/components/Button";
 import { GenderPicker } from "@/components/GenderPicker";
 import { Input } from "@/components/Input";
 import { useAuthContext } from "@/contexts/AuthContext/authContext";
-import { useFormatter } from "@/hooks/useFormatter";
-import {
-  RegisterFormData,
-  registerSchema,
-} from "@/schemas/Register/register-schema";
 import { MaterialIcons } from "@expo/vector-icons";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LinearGradient } from "expo-linear-gradient";
@@ -21,21 +16,21 @@ import {
   View,
 } from "react-native";
 import { styles } from "./style";
+import { SignInFormData } from "@/schemas/Login/login-schema";
+import { signUpSchema } from "@/schemas/Register/register-schema";
 
 const logoImage = require("../../assets/todo-new.png");
 
 export function SignUp() {
   const { signUp } = useAuthContext();
-  const { formatBirthDate, calculateAge } = useFormatter();
-
   const {
     control,
     handleSubmit,
     setError,
     watch,
     formState: { errors, isSubmitting },
-  } = useForm<RegisterFormData>({
-    resolver: zodResolver(registerSchema),
+  } = useForm<SignInFormData>({
+    resolver: zodResolver(signUpSchema),
     mode: "onChange",
   });
 
@@ -43,7 +38,7 @@ export function SignUp() {
   const age =
     birthDateValue?.length === 10 ? calculateAge(birthDateValue) : null;
 
-  async function handleRegister(data: RegisterFormData) {
+  async function handleRegister(data: SignInFormData) {
     const calculatedAge = calculateAge(data.birthDate) ?? 0;
 
     try {

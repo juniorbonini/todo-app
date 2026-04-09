@@ -28,7 +28,6 @@ export function Home() {
   return (
     <>
       <Header />
-      <Container>
         <CreateTask addTask={onAddTask} />
         <TaskSummary tasksSummary={tasks} />
         <FlatList
@@ -39,7 +38,6 @@ export function Home() {
           )}
           ListEmptyComponent={<Empty iconName="assignment-add" />}
         />
-      </Container>
     </>
   );
 }
