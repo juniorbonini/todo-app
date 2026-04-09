@@ -1,11 +1,13 @@
+import { Icon } from "@/components/Icon";
 import { useAuthContext } from "@/contexts/AuthContext/authContext";
 import { Color } from "@/style/Color";
 import { Gradients } from "@/utils/gradient-linear";
 import { LinearGradient } from "expo-linear-gradient";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import { Icon } from "../Icon";
 import { HeaderProps } from "./header-props";
 import { styles } from "./style";
+
+const logoImage = require("../../assets/todo-new.png");
 
 export function Header({ onNewTask }: HeaderProps) {
   const { user, signOut } = useAuthContext();
