@@ -2,41 +2,99 @@ import { Color } from "@/style/Color";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  wrapper: {
+    marginBottom: 10,
+    borderRadius: 12,
+    overflow: "hidden",
+  },
+
+  // Swipe backgrounds
+  swipeLeft: {
+    position: "absolute",
+    right: 0,
+    top: 0,
+    bottom: 0,
+    width: "40%",
+    backgroundColor: Color.red["red-dark"],
+    borderRadius: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+  },
+  swipeRight: {
+    position: "absolute",
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: "40%",
+    backgroundColor: Color.blue["blue-dark"],
+    borderRadius: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 6,
+  },
+  swipeText: {
+    color: Color.gray[100],
+    fontSize: 13,
+    fontWeight: "600",
+  },
+
+  // Card
   container: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    backgroundColor: Color.gray[600],
-    paddingVertical: 12,
-    paddingHorizontal: 14,
-    borderRadius: 14,
-    marginBottom: 12,
-    marginTop: 8,
-    borderWidth: 1,
-    borderColor: Color.gray[500],
+    backgroundColor: Color.gray[500],
+    borderRadius: 12,
+    padding: 14,
+    gap: 12,
   },
+
+  // Circle toggle
   circle: {
-    width: 22,
-    height: 22,
-    borderRadius: 14,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
     borderWidth: 2,
     borderColor: Color.blue["blue-dark"],
     alignItems: "center",
     justifyContent: "center",
-    marginRight: 10,
   },
-  description: {
-    color: Color.gray[300],
-    fontSize: 15,
-    flex: 1,
+  circleCompleted: {
+    borderColor: Color.purple["purple-dark"],
+    backgroundColor: Color.purple["purple-dark"],
+  },
+  circlePulse: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    borderRadius: 12,
+  },
+  circlePulseCompleted: {
+    backgroundColor: Color.purple["purple-dark"],
+  },
+  checkIcon: {
+    alignItems: "center",
+    justifyContent: "center",
   },
 
-  descriptionCompleted: {
-    textDecorationLine: "line-through",
-    color: Color.gray[400],
+  // Text + strikethrough
+  textWrapper: {
+    flex: 1,
+    justifyContent: "center",
   },
-  trash: {
-    marginLeft: 12,
-    padding: 6,
+  description: {
+    color: Color.gray[100],
+    fontSize: 15,
+  },
+  descriptionCompleted: {
+    color: Color.gray[300],
+  },
+  strikethrough: {
+    position: "absolute",
+    height: 1.5,
+    backgroundColor: Color.gray[300],
+    top: "50%",
   },
 });
