@@ -1,5 +1,5 @@
 import {
-  SignupFormData,
+  SignUpFormData,
   signUpSchema,
 } from "@/schemas/Register/register-schema";
 import { calculateAge } from "@/utils/calculateAge";
@@ -13,7 +13,7 @@ export function SignUpForm() {
     setError,
     watch,
     formState: { errors, isSubmitting },
-  } = useForm<SignupFormData>({
+  } = useForm<SignUpFormData>({
     resolver: zodResolver(signUpSchema),
     mode: "onChange",
   });
