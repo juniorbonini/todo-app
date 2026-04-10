@@ -1,14 +1,13 @@
-import { MaterialIcons } from "@expo/vector-icons";
 import { Text, View } from "react-native";
 
-import { EmptyProps } from "@/components/Empty/empty-props";
-import { Color } from "@/style/Color";
 import { styles } from "./style";
+import { Color } from "@/style/Color";
+import { Icon } from "@/components/Icon";
 
-export function Empty({ iconName }: EmptyProps) {
+export function Empty() {
   return (
     <View style={styles.container}>
-      <MaterialIcons name={iconName} size={90} color={Color.gray[400]} />
+      <Icon name="assignment-add" size={90} color={Color.gray[400]} />
       <Text style={styles.title}>Você ainda não tem tarefas cadastradas</Text>
       <Text style={styles.text}>
         Crie tarefas e organize seus itens a fazer

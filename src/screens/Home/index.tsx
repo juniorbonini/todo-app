@@ -1,9 +1,3 @@
-import {
-  Inter_400Regular,
-  Inter_700Bold,
-  useFonts,
-} from "@expo-google-fonts/inter";
-import { FlatList, View } from "react-native";
 import { Empty } from "@/components/Empty";
 import { Header } from "@/components/Header";
 import { Loading } from "@/components/Loading";
@@ -11,7 +5,13 @@ import { NewTaskModal } from "@/components/NewTaskModal";
 import { TaskSummary } from "@/components/Summary";
 import { TaskItem } from "@/components/Task";
 import { useTasks } from "@/hooks/Tasks/useTasks";
+import {
+  Inter_400Regular,
+  Inter_700Bold,
+  useFonts,
+} from "@expo-google-fonts/inter";
 import { useState } from "react";
+import { FlatList, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { styles } from "./style";
 
@@ -33,7 +33,13 @@ export function Home() {
 
   return (
     <GestureHandlerRootView>
-      <Header onNewTask={() => setModalVisible(true)} />
+      <Header
+        onNewTask={() => setModalVisible(true)}
+        xp={20}
+        xpMax={100}
+        level={2}
+        streak={3}
+      />
 
       <View style={styles.content}>
         <TaskSummary tasksSummary={tasks} />
@@ -48,7 +54,7 @@ export function Home() {
               onEdit={handleEdit}
             />
           )}
-          ListEmptyComponent={<Empty iconName="assignment-add" />}
+          ListEmptyComponent={<Empty />}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.list}
         />
