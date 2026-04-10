@@ -1,16 +1,15 @@
 {
   "expo": {
-    "name": "tasks",
-    "slug": "tasks",
+    "name": "Ascending TimeForge",
+    "slug": "Ascending",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/icon-ascending.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./src/assets/icon-ascending.png",
+      "resizeMode": "cover",
     },
     "ios": {
       "supportsTablet": true,
@@ -18,17 +17,15 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./src/assets/icon-ascending.png",
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anonymous.tasks"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./src/assets/ascending-logo.png"
     },
-    "plugins": [
-      "expo-secure-store"
-    ]
+    "plugins": ["expo-secure-store"]
   }
 }
