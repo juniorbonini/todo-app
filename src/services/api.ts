@@ -29,5 +29,7 @@ api.interceptors.response.use(
       await SecureStore.deleteItemAsync("todo_token");
       await SecureStore.deleteItemAsync("todo_user");
     }
+
+    return Promise.reject(error);
   }
-)
+);
