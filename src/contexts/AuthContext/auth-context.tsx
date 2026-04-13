@@ -3,10 +3,10 @@ import {
   AuthContextProviderProps,
   UserData,
 } from "@/contexts/AuthContext/auth-context-props";
-import { calculateAge } from "@/utils/calculateAge";
 import { SignInFormData } from "@/schemas/Login/login-schema";
 import { SignUpFormData } from "@/schemas/Register/register-schema";
 import { api } from "@/services/api";
+import { calculateAge } from "@/utils/calculateAge";
 import * as SecureStore from "expo-secure-store";
 import { createContext, useContext, useEffect, useState } from "react";
 
