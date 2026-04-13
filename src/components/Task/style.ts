@@ -8,6 +8,15 @@ export const styles = StyleSheet.create({
     overflow: "hidden",
   },
 
+  strikethrough: {
+    position: "absolute",
+    height: 1.5,
+    width: "100%",
+    backgroundColor: Color.gray[300],
+    top: "50%",
+    transform: [{ translateY: -0.75 }],
+  },
+
   swipeLeft: {
     position: "absolute",
     right: 0,
@@ -21,7 +30,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     gap: 6,
   },
-  
+
   swipeRight: {
     position: "absolute",
     left: 0,
@@ -94,12 +103,5 @@ export const styles = StyleSheet.create({
 
   descriptionCompleted: {
     color: Color.gray[300],
-  },
-
-  strikethrough: {
-    position: "absolute",
-    height: 1.5,
-    backgroundColor: Color.gray[300],
-    top: "50%",
   },
 });
