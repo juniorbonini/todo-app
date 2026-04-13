@@ -1,4 +1,3 @@
-import { useAuthContext } from "@/contexts/AuthContext/authContext";
 import { Color } from "@/style/Color";
 import { Gradients } from "@/utils/gradient-linear";
 import { LinearGradient } from "expo-linear-gradient";
@@ -7,6 +6,7 @@ import { Button } from "../Button";
 import { Icon } from "../Icon";
 import { HeaderProps } from "./header-props";
 import { styles } from "./style";
+import { useAuthContext } from "@/contexts/AuthContext/auth-context";
 
 const logoImage = require("../../assets/ascending-logo.png");
 

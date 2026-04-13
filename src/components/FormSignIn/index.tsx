@@ -1,4 +1,3 @@
-import { useAuthContext } from "@/contexts/AuthContext/authContext";
 import { useSignInForm } from "@/hooks/SignInForm";
 import { SignInFormData } from "@/schemas/Login/login-schema";
 import { ApiErrorResponse } from "@/utils/AxiosErrorInterface/axios-error.props";
@@ -8,6 +7,7 @@ import { Alert, Pressable, Text, View } from "react-native";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { styles } from "./style";
+import { useAuthContext } from "@/contexts/AuthContext/auth-context";
 
 export function SignInForm() {
   const { control, handleSubmit, errors, isSubmitting, setError } =

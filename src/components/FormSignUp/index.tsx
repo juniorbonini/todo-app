@@ -5,13 +5,13 @@ import { Alert, Text, View } from "react-native";
 import { Button } from "@/components/Button";
 import { GenderPicker } from "@/components/GenderPicker";
 import { Input } from "@/components/Input";
-import { useAuthContext } from "@/contexts/AuthContext/authContext";
 import { useSignUpForm } from "@/hooks/SignUpForm";
 import { SignUpFormData } from "@/schemas/Register/register-schema";
 import { ApiErrorResponse } from "@/utils/AxiosErrorInterface/axios-error.props";
 import { calculateAge } from "@/utils/calculateAge";
 import { formatBirthDate } from "@/utils/formatBirthDate";
 import { styles } from "./style";
+import { useAuthContext } from "@/contexts/AuthContext/auth-context";
 
 export function SignUpForm() {
   const { control, handleSubmit, errors, setError, watch, isSubmitting } =
