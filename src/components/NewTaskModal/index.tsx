@@ -1,6 +1,4 @@
 import { Color } from "@/style/Color";
-import { Gradients } from "@/utils/gradient-linear";
-import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import {
   Alert,
