@@ -42,9 +42,7 @@ export function useTasks() {
     const response = await api.patch<ApiTask>(`tasks/${id}/toggle`);
 
     setTasks((prevState) =>
-      prevState.map((task) =>
-        task.id === id ? mapTask(response.data) : task,
-      ),
+      prevState.map((task) => (task.id === id ? mapTask(response.data) : task)),
     );
   }
 
