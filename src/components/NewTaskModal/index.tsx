@@ -19,16 +19,20 @@ import { styles } from "./style";
 export function NewTaskModal({ visible, onClose, onAdd }: NewTaskModalProps) {
   const [description, setDescription] = useState("");
 
-  function handleAdd() {
+  async function handleAdd() {
     const trimmed = description.trim();
     if (!trimmed) {
       Alert.alert("Insira o nome da tarefa");
       return;
     }
 
-    onAdd(trimmed);
-    setDescription("");
-    onClose();
+    try {
+      await onAdd(trimmed);
+      setDescription("");
+      onClose();
+    } catch {
+      Alert.alert("Erro ao criar tarefa", "Nao foi possivel salvar a tarefa.");
+    }
   }
 
   function handleClose() {
@@ -55,7 +59,7 @@ export function NewTaskModal({ visible, onClose, onAdd }: NewTaskModalProps) {
             onChangeText={setDescription}
             autoFocus
           />
-            <Button label="Adicionar tarefa" onPress={handleAdd} />
+          <Button label="Adicionar tarefa" onPress={handleAdd} />
         </Pressable>
       </Pressable>
     </Modal>

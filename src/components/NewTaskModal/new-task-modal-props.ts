@@ -1,5 +1,5 @@
 export interface NewTaskModalProps {
   visible: boolean;
   onClose: () => void;
-  onAdd: (description: string) => void;
+  onAdd: (description: string) => Promise<void>;
 }

@@ -1,28 +1,58 @@
 import { Task } from "@/components/Task/task";
-import { useState } from "react";
+import { api } from "@/services/api";
+import { useEffect, useState } from "react";
+
+interface ApiTask {
+  _id: string;
+  title: string;
+  description?: string;
+  isCompleted: boolean;
+}
 
 export function useTasks() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
-  function onAddTask(description: string) {
-    const newTask: Task = {
-      id: Date.now().toString(),
-      description,
-      isCompleted: false,
+  function mapTask(task: ApiTask): Task {
+    return {
+      id: task._id,
+      description: task.description || task.title,
+      isCompleted: task.isCompleted,
     };
-    setTasks((prev) => [...prev, newTask]);
   }
 
-  function toggleTask(id: string) {
+  useEffect(() => {
+    async function loadTasks() {
+      const response = await api.get<ApiTask[]>("tasks");
+      setTasks(response.data.map(mapTask));
+    }
+
+    loadTasks();
+  }, []);
+
+  async function onAddTask(description: string) {
+    const response = await api.post<ApiTask>("tasks", {
+      title: description,
+      description,
+    });
+
+    setTasks((prev) => [...prev, mapTask(response.data)]);
+  }
+
+  async function toggleTask(id: string) {
+    const response = await api.patch<ApiTask>(`tasks/${id}/toggle`);
+
     setTasks((prevState) =>
       prevState.map((task) =>
-        task.id === id ? { ...task, isCompleted: !task.isCompleted } : task,
+        task.id === id ? mapTask(response.data) : task,
       ),
     );
   }
 
-  function removeTask(id: string) {
+  async function removeTask(id: string) {
+    await api.delete(`tasks/${id}`);
+
     setTasks((prevState) => prevState.filter((task) => task.id !== id));
   }
+
   return { tasks, onAddTask, toggleTask, removeTask };
 }
