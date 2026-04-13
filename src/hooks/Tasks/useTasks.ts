@@ -1,4 +1,4 @@
-import { Task } from "@/interfaces/task";
+import { Task } from "@/components/Task/task";
 import { useState } from "react";
 
 export function useTasks() {
