@@ -1,16 +1,16 @@
 import { Color } from "@/style/Color";
+import { Icon } from "@/components/Icon";
 import { Pressable, Text, View } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import Animated, {
-  runOnJS,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
   withTiming,
 } from "react-native-reanimated";
-import { Icon } from "../Icon";
 import { styles } from "./style";
 import { TaskProps } from "./task";
+import { runOnJS } from "react-native-worklets";
 
 const SWIPE_THRESHOLD = 80;
 const SWIPE_LIMIT = 100;
@@ -19,6 +19,7 @@ export function TaskItem({ task, onToggle, onDelete, onEdit }: TaskProps) {
   const { description, isCompleted, id } = task;
 
   const translateX = useSharedValue(0);
+  const isSwiped = useSharedValue(false);
   const checkScale = useSharedValue(isCompleted ? 1 : 0);
   const strikeOpacity = useSharedValue(isCompleted ? 1 : 0);
 
@@ -48,11 +49,15 @@ export function TaskItem({ task, onToggle, onDelete, onEdit }: TaskProps) {
     })
     .onEnd((e) => {
       if (e.translationX < -SWIPE_THRESHOLD) {
-        runOnJS(handleDelete)();
+        translateX.value = withSpring(-SWIPE_LIMIT); // Trava aberto na esquerda
+        isSwiped.value = true;
       } else if (e.translationX > SWIPE_THRESHOLD) {
-        runOnJS(handleEdit)();
+        translateX.value = withSpring(SWIPE_LIMIT); // Trava aberto na direita
+        isSwiped.value = true;
+      } else {
+        translateX.value = withSpring(0); // Fecha se o arrasto for curto
+        isSwiped.value = false;
       }
-      translateX.value = withSpring(0);
     });
 
   const cardStyle = useAnimatedStyle(() => ({
@@ -78,12 +83,16 @@ export function TaskItem({ task, onToggle, onDelete, onEdit }: TaskProps) {
   return (
     <View style={styles.wrapper}>
       <Animated.View style={[styles.swipeLeft, swipeLeftBg]}>
-        <Icon name="delete-forever" size={24} color={Color.gray[100]} />
-        <Text style={styles.swipeText}>Remover</Text>
+        <Pressable onPress={runOnJS(handleDelete)} style={styles.iconContainer}>
+          <Icon name="delete-forever" size={24} color={Color.gray[100]} />
+          <Text style={styles.swipeText}>Remover</Text>
+        </Pressable>
       </Animated.View>
       <Animated.View style={[styles.swipeRight, swipeRightBg]}>
-        <Icon name="edit" size={24} color={Color.gray[100]} />
-        <Text style={styles.swipeText}>Editar</Text>
+        <Pressable onPress={runOnJS(handleEdit)} style={styles.iconContainer}>
+          <Icon name="edit" size={24} color={Color.gray[100]} />
+          <Text style={styles.swipeText}>Editar</Text>
+        </Pressable>
       </Animated.View>
 
       <GestureDetector gesture={panGesture}>

@@ -24,10 +24,10 @@ export const styles = StyleSheet.create({
     bottom: 0,
     width: "40%",
     backgroundColor: Color.red["red-dark"],
-    borderRadius: 12,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
+    borderRadius: 12,
     gap: 6,
   },
 
@@ -39,10 +39,16 @@ export const styles = StyleSheet.create({
     width: "40%",
     backgroundColor: Color.blue["blue-dark"],
     borderRadius: 12,
-    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
     gap: 6,
+  },
+
+  iconContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 3,
   },
 
   swipeText: {

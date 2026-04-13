@@ -1,12 +1,15 @@
-const { exec } = require("child_process");
-const util = require("util");
-const execPromise = util.promisify(exec);
-require("dotenv").config();
-const { Groq } = require("groq-sdk");
+import { exec } from "child_process";
+import dotenv from "dotenv";
+import { Groq } from "groq-sdk";
+import path from "path";
+import util from "util";
 
-const groq = new Groq({
-  apiKey:  process.env.GROQ_API_KEY,
-});
+dotenv.config({ path: path.resolve(process.cwd(), ".env") });
+
+const execPromise = util.promisify(exec);
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+
+console.log("Chave carregada:", process.env.GROQ_API_KEY ? "SIM" : "NÃO");
 
 async function run() {
   try {
@@ -34,9 +37,12 @@ Diff: ${diff}
       messages: [{ role: "user", content: prompt }],
     });
 
-    const msg = response.choices[0].message.content
-      .trim()
-      .replace(/^"|"$/g, "");
+    const content = response.choices[0]?.message?.content;
+    if (!content) {
+      return console.log("Nenhuma resposta gerada pelo modelo.");
+    }
+
+    const msg = content.trim().replace(/^"|"$/g, "");
 
     console.log(`Commit gerado: ${msg}`);
 
