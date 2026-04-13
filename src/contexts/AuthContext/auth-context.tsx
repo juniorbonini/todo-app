@@ -3,6 +3,7 @@ import {
   AuthContextProviderProps,
   UserData,
 } from "@/contexts/AuthContext/auth-context-props";
+import { calculateAge } from "@/utils/calculateAge";
 import { SignInFormData } from "@/schemas/Login/login-schema";
 import { SignUpFormData } from "@/schemas/Register/register-schema";
 import { api } from "@/services/api";
@@ -14,6 +15,16 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 export function AuthContextProvider({ children }: AuthContextProviderProps) {
   const [user, setUser] = useState<UserData | null>(null);
   const [loading, setLoading] = useState(true);
+
+  function setSession(token: string, userData: UserData) {
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    setUser(userData);
+  }
+
+  function formatBirthDateToISO(birthDate: string) {
+    const [day, month, year] = birthDate.split("/").map(Number);
+    return new Date(year, month - 1, day).toISOString();
+  }
 
   useEffect(() => {
     async function loadStorageData() {
@@ -37,25 +48,31 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
   }, []);
 
   async function signIn(data: SignInFormData) {
-    const response = await api.post("auth/login", { data });
+    const response = await api.post("auth/login", data);
     const { token, user: userData } = response.data;
 
-    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-
-    setUser(userData);
+    setSession(token, userData);
     await SecureStore.setItemAsync("todo_token", token);
     await SecureStore.setItemAsync("todo_user", JSON.stringify(userData));
   }
 
   async function signUp(data: SignUpFormData) {
-    const response = await api.post("users/register", data);
-    const { token, user: userData } = response.data;
+    const age = calculateAge(data.birthDate);
 
-    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    if (age === null) {
+      throw new Error("Data de nascimento inválida");
+    }
 
-    setUser(userData);
-    await SecureStore.setItemAsync("todo_token", token);
-    await SecureStore.setItemAsync("todo_user", JSON.stringify(userData));
+    await api.post("users/register", {
+      ...data,
+      birthDate: formatBirthDateToISO(data.birthDate),
+      age,
+    });
+
+    await signIn({
+      email: data.email,
+      password: data.password,
+    });
   }
 
   function signOut() {
