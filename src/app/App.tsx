@@ -1,10 +1,13 @@
 import { Container } from "@/components/Container";
-import { Home } from "@/screens/Home";
+import { AuthContextProvider } from "@/contexts/AuthContext/auth-context";
+import { Routes } from "@/routes";
 
 export default function App() {
   return (
-    <Container>
-      <Home />
-    </Container>
+    <AuthContextProvider>
+      <Container>
+        <Routes />
+      </Container>
+    </AuthContextProvider>
   );
 }
