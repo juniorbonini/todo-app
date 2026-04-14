@@ -1,8 +1,4 @@
-import z from "zod";
-
-export const signInSchema = z.object({
-  email: z.string().email(),
-  password: z.string(),
-});
-
-export type SignInFormData = z.infer<typeof signInSchema>;
+export interface SignInFormData {
+  email: string;
+  password: string;
+}

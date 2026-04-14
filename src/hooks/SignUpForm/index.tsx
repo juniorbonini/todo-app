@@ -1,9 +1,5 @@
-import {
-  SignUpFormData,
-  signUpSchema,
-} from "@/schemas/Register/register-schema";
+import { SignUpFormData } from "@/schemas/Register/register-schema";
 import { calculateAge } from "@/utils/calculateAge";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 export function useSignUpForm() {
@@ -13,10 +9,7 @@ export function useSignUpForm() {
     setError,
     watch,
     formState: { errors, isSubmitting },
-  } = useForm<SignUpFormData>({
-    resolver: zodResolver(signUpSchema),
-    mode: "onChange",
-  });
+  } = useForm<SignUpFormData>();
 
   const birthDate = watch("birthDate");
   const age = birthDate?.length === 10 ? calculateAge(birthDate) : null;

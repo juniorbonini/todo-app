@@ -1,5 +1,4 @@
-import { SignInFormData, signInSchema } from "@/schemas/Login/login-schema";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { SignInFormData } from "@/schemas/Login/login-schema";
 import { useForm } from "react-hook-form";
 
 export function useSignInForm() {
@@ -8,10 +7,7 @@ export function useSignInForm() {
     handleSubmit,
     setError,
     formState: { errors, isSubmitting },
-  } = useForm<SignInFormData>({
-    resolver: zodResolver(signInSchema),
-    mode: "onChange",
-  });
+  } = useForm<SignInFormData>();
 
   return { control, handleSubmit, setError, errors, isSubmitting };
 }
