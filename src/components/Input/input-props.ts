@@ -6,5 +6,5 @@ export interface InputProps extends TextInputProps {
   error?: string;
   label: string;
   icon?: keyof typeof MaterialIcons.glyphMap;
-  showPassworToggle?: boolean;
+  showPasswordToggle?: boolean;
 }

@@ -11,7 +11,7 @@ export function Input({
   label,
   icon,
   error,
-  showPassworToggle,
+  showPasswordToggle,
   ...rest
 }: InputProps) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -36,12 +36,16 @@ export function Input({
           secureTextEntry={isSecure}
           {...rest}
         />
-        {showPassworToggle && secureTextEntry && (
+        {showPasswordToggle && secureTextEntry && (
           <TouchableOpacity
             onPress={() => setIsPasswordVisible((prev) => !prev)}
             activeOpacity={0.7}
           >
-            <Icon name={isPasswordVisible ? "visibility" : "visibility-off"} />
+            <Icon
+              name={isPasswordVisible ? "visibility" : "visibility-off"}
+              color={Color.gray[300]}
+              size={18}
+            />
           </TouchableOpacity>
         )}
       </View>
