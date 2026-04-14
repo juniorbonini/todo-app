@@ -1,5 +1,6 @@
 import { Task } from "@/components/Task/task";
 import { api } from "@/services/api";
+import { ApiSuccessResponse } from "@/utils/AxiosErrorInterface/api-success-response";
 import { useEffect, useState } from "react";
 
 interface ApiTask {
@@ -22,27 +23,36 @@ export function useTasks() {
 
   useEffect(() => {
     async function loadTasks() {
-      const response = await api.get<ApiTask[]>("tasks");
-      setTasks(response.data.map(mapTask));
+      const response = await api.get<ApiSuccessResponse<{ tasks: ApiTask[] }>>(
+        "tasks",
+      );
+      setTasks(response.data.data.tasks.map(mapTask));
     }
 
     loadTasks();
   }, []);
 
   async function onAddTask(description: string) {
-    const response = await api.post<ApiTask>("tasks", {
-      title: description,
-      description,
-    });
+    const response = await api.post<ApiSuccessResponse<{ task: ApiTask }>>(
+      "tasks",
+      {
+        title: description,
+        description,
+      },
+    );
 
-    setTasks((prev) => [...prev, mapTask(response.data)]);
+    setTasks((prev) => [...prev, mapTask(response.data.data.task)]);
   }
 
   async function toggleTask(id: string) {
-    const response = await api.patch<ApiTask>(`tasks/${id}/toggle`);
+    const response = await api.patch<ApiSuccessResponse<{ task: ApiTask }>>(
+      `tasks/${id}/toggle`,
+    );
 
     setTasks((prevState) =>
-      prevState.map((task) => (task.id === id ? mapTask(response.data) : task)),
+      prevState.map((task) =>
+        task.id === id ? mapTask(response.data.data.task) : task,
+      ),
     );
   }
 

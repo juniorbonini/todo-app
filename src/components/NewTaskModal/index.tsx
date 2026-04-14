@@ -1,4 +1,6 @@
 import { Color } from "@/style/Color";
+import { ApiErrorResponse } from "@/utils/AxiosErrorInterface/axios-error.props";
+import { AxiosError } from "axios";
 import { useState } from "react";
 import {
   Alert,
@@ -18,18 +20,18 @@ export function NewTaskModal({ visible, onClose, onAdd }: NewTaskModalProps) {
   const [description, setDescription] = useState("");
 
   async function handleAdd() {
-    const trimmed = description.trim();
-    if (!trimmed) {
-      Alert.alert("Insira o nome da tarefa");
-      return;
-    }
-
     try {
-      await onAdd(trimmed);
+      await onAdd(description.trim());
       setDescription("");
       onClose();
-    } catch {
-      Alert.alert("Erro ao criar tarefa", "Nao foi possivel salvar a tarefa.");
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        const response = error.response?.data as ApiErrorResponse | undefined;
+
+        if (response?.message) {
+          Alert.alert(response.message);
+        }
+      }
     }
   }
 
