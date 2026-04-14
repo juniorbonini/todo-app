@@ -1,6 +1,6 @@
-import { SignUpFormData } from "@/schemas/Register/register-schema";
-
 export interface ApiErrorResponse {
+  status?: "error";
   message?: string;
+  code?: string;
   field?: string;
 }

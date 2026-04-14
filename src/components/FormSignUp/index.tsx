@@ -26,8 +26,6 @@ export function SignUpForm() {
     try {
       await signUp(data);
     } catch (error: unknown) {
-      let message = "Erro ao autenticar";
-
       if (error instanceof AxiosError) {
         const axiosError = error as AxiosError<ApiErrorResponse>;
         const response = axiosError.response?.data;
@@ -41,12 +39,9 @@ export function SignUpForm() {
         }
 
         if (response?.message) {
-          message = response.message;
-        } else if (error instanceof Error) {
-          message = error.message;
+          Alert.alert(response.message);
         }
       }
-      Alert.alert("Erro ao registrar", message);
     }
   }
   return (

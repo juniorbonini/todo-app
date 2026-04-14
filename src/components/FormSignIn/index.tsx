@@ -18,8 +18,6 @@ export function SignInForm() {
     try {
       await signIn(data);
     } catch (error: unknown) {
-      let message = "Erro ao autenticar";
-
       if (error instanceof AxiosError) {
         const axiosError = error as AxiosError<ApiErrorResponse>;
         const response = axiosError.response?.data;
@@ -33,12 +31,9 @@ export function SignInForm() {
         }
 
         if (response?.message) {
-          message = response.message;
-        } else if (error instanceof Error) {
-          message = error.message;
+          Alert.alert(response.message);
         }
       }
-      Alert.alert("Erro no login", message);
     }
   }
   return (

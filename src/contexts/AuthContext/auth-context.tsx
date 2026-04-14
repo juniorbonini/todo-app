@@ -23,7 +23,9 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
 
   function formatBirthDateToISO(birthDate: string) {
     const [day, month, year] = birthDate.split("/").map(Number);
-    return new Date(year, month - 1, day).toISOString();
+    const parsedDate = new Date(year, month - 1, day);
+
+    return Number.isNaN(parsedDate.getTime()) ? null : parsedDate.toISOString();
   }
 
   useEffect(() => {
@@ -39,7 +41,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
           setUser(JSON.parse(storageUser));
         }
       } catch (error) {
-        console.error("Erro ao carregar storage:", error);
+        console.error(error);
       } finally {
         setLoading(false);
       }
@@ -49,7 +51,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
 
   async function signIn(data: SignInFormData) {
     const response = await api.post("auth/login", data);
-    const { token, user: userData } = response.data;
+    const { token, user: userData } = response.data.data;
 
     setSession(token, userData);
     await SecureStore.setItemAsync("todo_token", token);
@@ -58,21 +60,29 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
 
   async function signUp(data: SignUpFormData) {
     const age = calculateAge(data.birthDate);
+    const formattedBirthDate = formatBirthDateToISO(data.birthDate);
 
     if (age === null) {
-      throw new Error("Data de nascimento inválida");
+      await api.post("users/register", {
+        ...data,
+        birthDate: null,
+        age: undefined,
+      });
+      return;
     }
 
-    await api.post("users/register", {
+    const response = await api.post("users/register", {
       ...data,
-      birthDate: formatBirthDateToISO(data.birthDate),
+      birthDate: formattedBirthDate,
       age,
     });
 
-    await signIn({
-      email: data.email,
-      password: data.password,
-    });
+    if (response.data.status === "success") {
+      await signIn({
+        email: data.email,
+        password: data.password,
+      });
+    }
   }
 
   function signOut() {
