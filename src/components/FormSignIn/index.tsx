@@ -1,3 +1,4 @@
+import { useAuthContext } from "@/contexts/AuthContext/auth-context";
 import { useSignInForm } from "@/hooks/SignInForm";
 import { SignInFormData } from "@/schemas/Login/login-schema";
 import { ApiErrorResponse } from "@/utils/AxiosErrorInterface/axios-error.props";
@@ -7,7 +8,6 @@ import { Alert, Pressable, Text, View } from "react-native";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { styles } from "./style";
-import { useAuthContext } from "@/contexts/AuthContext/auth-context";
 
 export function SignInForm() {
   const { control, handleSubmit, errors, isSubmitting, setError } =
@@ -21,6 +21,16 @@ export function SignInForm() {
       if (error instanceof AxiosError) {
         const axiosError = error as AxiosError<ApiErrorResponse>;
         const response = axiosError.response?.data;
+
+        if (response?.errors?.length) {
+          response.errors.forEach(({ field, message }) => {
+            setError(field as keyof SignInFormData, {
+              type: "manual",
+              message,
+            });
+          });
+          return;
+        }
 
         if (response?.field && response?.message) {
           setError(response.field as keyof SignInFormData, {
@@ -64,6 +74,7 @@ export function SignInForm() {
               label="SENHA"
               placeholder="*****"
               secureTextEntry
+              showPasswordToggle
               value={value}
               onChangeText={onChange}
               icon="lock-outline"
@@ -81,7 +92,6 @@ export function SignInForm() {
           onPress={handleSubmit(onSubmit)}
           label={isSubmitting ? "Entrando..." : "Entrar"}
         />
-
       </View>
     </>
   );

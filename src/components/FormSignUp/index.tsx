@@ -5,13 +5,13 @@ import { Alert, Text, View } from "react-native";
 import { Button } from "@/components/Button";
 import { GenderPicker } from "@/components/GenderPicker";
 import { Input } from "@/components/Input";
+import { useAuthContext } from "@/contexts/AuthContext/auth-context";
 import { useSignUpForm } from "@/hooks/SignUpForm";
 import { SignUpFormData } from "@/schemas/Register/register-schema";
 import { ApiErrorResponse } from "@/utils/AxiosErrorInterface/axios-error.props";
 import { calculateAge } from "@/utils/calculateAge";
 import { formatBirthDate } from "@/utils/formatBirthDate";
 import { styles } from "./style";
-import { useAuthContext } from "@/contexts/AuthContext/auth-context";
 
 export function SignUpForm() {
   const { control, handleSubmit, errors, setError, watch, isSubmitting } =
@@ -29,6 +29,16 @@ export function SignUpForm() {
       if (error instanceof AxiosError) {
         const axiosError = error as AxiosError<ApiErrorResponse>;
         const response = axiosError.response?.data;
+
+        if (response?.errors?.length) {
+          response.errors.forEach(({ field, message }) => {
+            setError(field as keyof SignUpFormData, {
+              type: "manual",
+              message,
+            });
+          });
+          return;
+        }
 
         if (response?.field && response?.message) {
           setError(response.field as keyof SignUpFormData, {
@@ -88,6 +98,7 @@ export function SignUpForm() {
               label="SENHA"
               placeholder="••••••••"
               secureTextEntry
+              showPasswordToggle
               value={value}
               onChangeText={onChange}
               error={errors.password?.message}
@@ -104,6 +115,7 @@ export function SignUpForm() {
               label="CONFIRME A SENHA"
               placeholder="••••••••"
               secureTextEntry
+              showPasswordToggle
               value={value}
               onChangeText={onChange}
               error={errors.confirmPassword?.message}
