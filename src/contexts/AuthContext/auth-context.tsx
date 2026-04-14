@@ -6,7 +6,6 @@ import {
 import { SignInFormData } from "@/schemas/Login/login-schema";
 import { SignUpFormData } from "@/schemas/Register/register-schema";
 import { api } from "@/services/api";
-import { calculateAge } from "@/utils/calculateAge";
 import * as SecureStore from "expo-secure-store";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -19,13 +18,6 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
   function setSession(token: string, userData: UserData) {
     api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     setUser(userData);
-  }
-
-  function formatBirthDateToISO(birthDate: string) {
-    const [day, month, year] = birthDate.split("/").map(Number);
-    const parsedDate = new Date(year, month - 1, day);
-
-    return Number.isNaN(parsedDate.getTime()) ? null : parsedDate.toISOString();
   }
 
   useEffect(() => {
@@ -59,22 +51,8 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
   }
 
   async function signUp(data: SignUpFormData) {
-    const age = calculateAge(data.birthDate);
-    const formattedBirthDate = formatBirthDateToISO(data.birthDate);
-
-    if (age === null) {
-      await api.post("users/register", {
-        ...data,
-        birthDate: null,
-        age: undefined,
-      });
-      return;
-    }
-
     const response = await api.post("users/register", {
       ...data,
-      birthDate: formattedBirthDate,
-      age,
     });
 
     if (response.data.status === "success") {

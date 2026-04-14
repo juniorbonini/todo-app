@@ -12,9 +12,12 @@ export function calculateAge(birthDate: string): number | null {
   if (birth.getMonth() !== month - 1 || birth.getDate() !== day) return null;
 
   let age = today.getFullYear() - birth.getFullYear();
-  const monthDiff = today.getFullYear() - birth.getFullYear();
+  const monthDiff = today.getMonth() - birth.getMonth();
 
-  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+  if (
+    monthDiff < 0 ||
+    (monthDiff === 0 && today.getDate() < birth.getDate())
+  ) {
     age--;
   }
   return age >= 0 ? age : null;
