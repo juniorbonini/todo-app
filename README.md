@@ -1,11 +1,11 @@
-#📋 Ascending Time Forge — Frontend
+# 📋 Ascending Time Forge — Frontend
 Aplicação mobile de gerenciamento de tarefas desenvolvida com React Native, Expo e TypeScript.
 O projeto nasceu como um desafio simples de tarefas e está evoluindo para uma plataforma completa com autenticação, perfil de usuário, estatísticas e múltiplas telas — sempre com foco em arquitetura limpa, componentização e boas práticas de mercado.
 
 O nome não é por acaso: o app é sobre disciplina, constância e crescimento — e o próprio desenvolvimento dele segue esse mesmo princípio.
 
 
-##🚀 Tecnologias
+## 🚀 Tecnologias
 
 React Native
 Expo
@@ -17,7 +17,7 @@ Expo Google Fonts (Inter)
 Git & GitHub
 
 
-##✅ Funcionalidades implementadas
+## ✅ Funcionalidades implementadas
 
 Criar, concluir e remover tarefas
 Contadores dinâmicos de tarefas criadas e concluídas
@@ -35,7 +35,7 @@ Utilitários de formatação: calculateAge e formatBirthDate
 Gradiente visual com gradient-linear
 
 
-##🔐 Próximas implementações
+## 🔐 Próximas implementações
 
  Integração completa Login/Register com a API
  Persistência de token com Expo Secure Store
@@ -44,7 +44,7 @@ Gradiente visual com gradient-linear
  Melhorias de UX e acessibilidade
 
 
-##🧠 Arquitetura
+## 🧠 Arquitetura
 O projeto passou por uma refatoração completa antes de seguir para as novas funcionalidades, aplicando:
 
 Custom hooks — lógica extraída para useTasks, SignInForm, SignUpForm
@@ -56,16 +56,16 @@ Schemas de validação — Login e Register com validação estruturada
 Context API — gerenciamento de estado de autenticação com AuthContext
 
 
-##🧩 Componentes principais
+## 🧩 Componentes principais
 ComponenteResponsabilidadeContainerCor de fundo e padding horizontalHeaderLogo e identidade visual do appHeroSeção de destaque / boas-vindasFormInput controlado + botão de criaçãoFormSignInFormulário de loginFormSignUpFormulário de cadastroGenderPickerSeleção de gênero no cadastroNewTaskModalModal de criação de tarefasTabSwitcherAlternância entre abasTaskItemRenderização individual de tarefaSummaryContadores de criadas e concluídasEmptyEstado visual sem tarefasLoadingTela de carregamento de fontesIconÍcones reutilizáveis
 
-##🪝 Hooks
+## 🪝 Hooks
 HookResponsabilidadeuseTasksEstado e operações da lista de tarefas (add, toggle, remove)SignInFormLógica e estado do formulário de loginSignUpFormLógica e estado do formulário de cadastro
 
-##🖥️ Telas
+## 🖥️ Telas
 TelaDescriçãoAuthTela de autenticação (Login / Registro)HomeTela principal com lista de tarefas
 
-##📁 Estrutura de pastas
+## 📁 Estrutura de pastas
 src/
 ├── app/
 │   └── App.tsx
@@ -113,10 +113,10 @@ src/
     ├── formatBirthDate/
     └── gradient-linear.ts
 
-##▶️ Como executar
+## ▶️ Como executar
 bashnpm install
 npx expo start
 
-##👨‍💻 Autor
+## 👨‍💻 Autor
 Desenvolvido por Junior Bonini
 Projeto iniciado como desafio da Rocketseat e expandido como portfólio profissional com foco em arquitetura mobile real.
